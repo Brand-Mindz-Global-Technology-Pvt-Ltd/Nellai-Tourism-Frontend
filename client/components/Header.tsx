@@ -82,9 +82,9 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <Search className="w-6 h-6 text-black cursor-pointer hover:text-tourism-primary transition-colors" />
             <div className="w-px h-5 bg-gray-300" />
-            <button className="bg-tourism-primary text-white px-6 py-2 rounded-2xl text-sm font-medium hover:bg-tourism-primary/90 transition-colors">
+            <Link to="/signin" className="bg-tourism-primary text-white px-6 py-2 rounded-2xl text-sm font-medium hover:bg-tourism-primary/90 transition-colors">
               Sign in / Sign up
-            </button>
+            </Link>
           </div>
         </div>
       </div>
