@@ -7,7 +7,7 @@ export default function SearchSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/69e682d02dec2a18b684bfc5aed1bb2d9ed4fe30?width=2906')"
+          backgroundImage: "url('/images/hero/search-background.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -25,65 +25,43 @@ export default function SearchSection() {
         </p>
         
         {/* Search Form */}
-        <div className="bg-white rounded-xl p-6 max-w-4xl mx-auto shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
-            {/* Location */}
-            <div className="text-left">
-              <div className="flex items-center gap-3 mb-2">
-                <MapPin className="w-4 h-4 text-tourism-primary" />
-                <label className="text-tourism-primary font-poppins text-sm font-semibold">
-                  Location
-                </label>
-              </div>
+        <div className="bg-white rounded-2xl p-6 md:p-8 max-w-4xl mx-auto shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {/* Destination */}
+            <div className="relative">
+              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input 
                 type="text" 
-                placeholder="Search For A Destination"
-                className="w-full text-tourism-accent font-poppins text-sm focus:outline-none"
+                placeholder="Where are you going?"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tourism-primary focus:border-transparent"
               />
             </div>
-            
-            {/* Separator */}
-            <div className="hidden md:block w-px h-6 bg-tourism-border mx-auto"></div>
             
             {/* Date */}
-            <div className="text-left">
-              <div className="flex items-center gap-3 mb-2">
-                <Calendar className="w-4 h-4 text-tourism-primary" />
-                <label className="text-tourism-primary font-poppins text-sm font-semibold">
-                  Date
-                </label>
-              </div>
+            <div className="relative">
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input 
-                type="text" 
-                placeholder="Pick a date"
-                className="w-full text-tourism-accent font-poppins text-sm focus:outline-none"
+                type="date" 
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tourism-primary focus:border-transparent"
               />
             </div>
             
-            {/* Separator */}
-            <div className="hidden md:block w-px h-6 bg-tourism-border mx-auto"></div>
-            
-            {/* Guests */}
-            <div className="text-left">
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-5 h-4 text-tourism-primary" />
-                <label className="text-tourism-primary font-poppins text-sm font-semibold">
-                  Guests
-                </label>
-              </div>
-              <input 
-                type="text" 
-                placeholder="How many Guests?"
-                className="w-full text-tourism-accent font-poppins text-sm focus:outline-none"
-              />
+            {/* Travelers */}
+            <div className="relative">
+              <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <select className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tourism-primary focus:border-transparent">
+                <option>Travelers</option>
+                <option>1 Traveler</option>
+                <option>2 Travelers</option>
+                <option>3 Travelers</option>
+                <option>4+ Travelers</option>
+              </select>
             </div>
             
             {/* Search Button */}
-            <div className="md:col-span-1">
-              <button className="w-full bg-tourism-primary text-white py-4 px-8 rounded-full font-poppins text-base hover:bg-tourism-primary/90 transition-colors shadow-lg">
-                Search
-              </button>
-            </div>
+            <button className="bg-tourism-primary text-white px-8 py-3 rounded-lg font-poppins text-base font-semibold hover:bg-tourism-primary/90 transition-colors">
+              Search
+            </button>
           </div>
         </div>
       </div>
