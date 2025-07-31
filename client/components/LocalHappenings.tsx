@@ -1,21 +1,72 @@
+import { useState, useEffect } from 'react';
+
 export default function LocalHappenings() {
-  const happenings = [
+  const [currentImage1, setCurrentImage1] = useState(0);
+  const [currentImage2, setCurrentImage2] = useState(0);
+  const [currentImage3, setCurrentImage3] = useState(0);
+  
+  const allHappenings = [
     {
       title: "Taxi",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/68835b40af72c60c1b6918937781906ce4d7a41a?width=1578",
+      image: "/images/local-happenings/taxi-service.jpg",
       buttonColor: "bg-tourism-secondary"
     },
     {
       title: "Private Party",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/7e15d38b94bcf3465259e6de0036568ef97fb6f5?width=1572",
+      image: "/images/local-happenings/private-party.jpg",
       buttonColor: "bg-tourism-secondary"
     },
     {
       title: "Restaurant",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/be9181cd175c1ef6b130f617c8f443fc02f943ae?width=1484",
+      image: "/images/local-happenings/restaurant.jpg",
+      buttonColor: "bg-tourism-secondary"
+    },
+    {
+      title: "Corporate Events",
+      image: "/images/travel-categories/corporate-party.jpg",
+      buttonColor: "bg-tourism-secondary"
+    },
+    {
+      title: "Beach Activities",
+      image: "/images/travel-categories/gallery-couple-beach.jpg",
+      buttonColor: "bg-tourism-secondary"
+    },
+    {
+      title: "Mountain Tours",
+      image: "/images/gallery/gallery-mountain-view.jpg",
       buttonColor: "bg-tourism-secondary"
     }
   ];
+
+  // First image changes every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage1((prev) => (prev + 1) % allHappenings.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Second image changes every 3 seconds, starts after 1 second
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setCurrentImage2((prev) => (prev + 1) % allHappenings.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Third image changes every 3 seconds, starts after 2 seconds
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setCurrentImage3((prev) => (prev + 1) % allHappenings.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }, 2000);
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
@@ -30,19 +81,19 @@ export default function LocalHappenings() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-          {/* Left Column - Taxi (Large) */}
+          {/* Left Column - First item (Large) */}
           <div className="relative h-[600px] group cursor-pointer">
             <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-              style={{ backgroundImage: `url('${happenings[0].image}')` }}
+              className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+              style={{ backgroundImage: `url('${allHappenings[currentImage1].image}')` }}
             />
             <div className="absolute inset-0 bg-black/40" />
             
             <div className="absolute bottom-8 left-8 text-white">
               <h3 className="text-3xl font-poppins font-semibold mb-4">
-                {happenings[0].title}
+                {allHappenings[currentImage1].title}
               </h3>
-              <button className={`${happenings[0].buttonColor} text-white px-10 py-3 font-poppins text-base font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+              <button className={`${allHappenings[currentImage1].buttonColor} text-white px-10 py-3 font-poppins text-base font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                 Book now
               </button>
             </div>
@@ -50,37 +101,37 @@ export default function LocalHappenings() {
 
           {/* Right Column - Two stacked items */}
           <div className="flex flex-col">
-            {/* Private Party */}
+            {/* Second item */}
             <div className="relative h-[300px] group cursor-pointer">
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                style={{ backgroundImage: `url('${happenings[1].image}')` }}
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+                style={{ backgroundImage: `url('${allHappenings[currentImage2].image}')` }}
               />
               <div className="absolute inset-0 bg-black/40" />
               
               <div className="absolute bottom-6 left-6 text-white">
                 <h3 className="text-2xl font-poppins font-semibold mb-3">
-                  {happenings[1].title}
+                  {allHappenings[currentImage2].title}
                 </h3>
-                <button className={`${happenings[1].buttonColor} text-white px-8 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button className={`${allHappenings[currentImage2].buttonColor} text-white px-8 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                   Book now
                 </button>
               </div>
             </div>
 
-            {/* Restaurant */}
+            {/* Third item */}
             <div className="relative h-[300px] group cursor-pointer">
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                style={{ backgroundImage: `url('${happenings[2].image}')` }}
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+                style={{ backgroundImage: `url('${allHappenings[currentImage3].image}')` }}
               />
               <div className="absolute inset-0 bg-black/40" />
               
               <div className="absolute bottom-6 left-6 text-white">
                 <h3 className="text-2xl font-poppins font-semibold mb-3">
-                  {happenings[2].title}
+                  {allHappenings[currentImage3].title}
                 </h3>
-                <button className={`${happenings[2].buttonColor} text-white px-8 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button className={`${allHappenings[currentImage3].buttonColor} text-white px-8 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                   Book now
                 </button>
               </div>

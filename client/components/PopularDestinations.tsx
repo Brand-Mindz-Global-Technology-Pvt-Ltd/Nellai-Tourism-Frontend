@@ -65,7 +65,7 @@ export default function PopularDestinations() {
           {destinations.map((destination, index) => (
             <div 
               key={index}
-              className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+              className="relative h-[320px] md:h-[380px] lg:h-[450px] rounded-xl overflow-hidden shadow-lg group cursor-pointer"
             >
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
