@@ -52,9 +52,8 @@ const images = [
     },
 ];
 
-// Refined animation properties for a smoother, more "lookable" feel
 const TRANSITION_DURATION = 1.4; 
-const TRANSITION_EASE = [0.87, 0, 0.13, 1]; // A more professional ease-in-out curve
+const TRANSITION_EASE = [0.87, 0, 0.13, 1]; // This easing curve is key to the smooth feel
 
 export default function HeroSection() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -112,6 +111,9 @@ export default function HeroSection() {
   
   return (
     <section className="relative w-full h-screen min-h-[800px] overflow-hidden bg-black select-none">
+      <header className="absolute top-0 left-0 right-0 z-50 p-8">
+        {/* Your Header JSX */}
+      </header>
 
       <AnimatePresence>
         {showRestartEffect && (
@@ -129,24 +131,24 @@ export default function HeroSection() {
         <motion.div
           key={activeImage.id}
           layoutId={`card-container-${activeImage.id}`}
-          exit={{ opacity: 0, scale: 0.9, transition: { duration: TRANSITION_DURATION / 2 } }}
           className="absolute inset-0 z-10"
-          // --- MODIFICATION: Updated transition for a smoother feel ---
+          // This transition is what makes the expansion smooth
           transition={{ duration: TRANSITION_DURATION, ease: TRANSITION_EASE }}
         >
-          <img src={activeImage.src} alt={activeImage.title} className="w-full h-full object-cover" />
+          <img 
+            src={activeImage.src} 
+            alt={activeImage.title} 
+            className="w-full h-full object-cover" 
+          />
         </motion.div>
       </AnimatePresence>
       <div className="absolute inset-0 bg-black/50 z-20" />
 
-      {/* --- MODIFICATION: Animated text content --- */}
       <div className="absolute top-0 left-0 flex flex-col justify-center h-full px-8 md:px-16 lg:px-24 max-w-2xl text-white z-30">
           <AnimatePresence>
             <motion.div
-              // Give a key so AnimatePresence knows the content has changed
               key={`text-${activeImage.id}`}
               initial={{ opacity: 0, y: 20 }}
-              // Animate in, but only after the banner has had time to expand
               animate={{ opacity: 1, y: 0, transition: { delay: TRANSITION_DURATION * 0.6, duration: 0.8, ease: TRANSITION_EASE } }}
               exit={{ opacity: 0 }}
             >
@@ -162,7 +164,6 @@ export default function HeroSection() {
        <div className="absolute bottom-12 right-[380px] z-40 text-white text-7xl font-bold">
           0{activeImage.id}
        </div>
-      {/* --- END MODIFICATION --- */}
 
 
       <div
@@ -186,6 +187,8 @@ export default function HeroSection() {
                         animate={{ opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut", delay: TRANSITION_DURATION * 0.2 } }}
                         whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                     >
+                        {/* --- RESTORED --- */}
+                        {/* This uses default object-cover for a square, as you requested. */}
                         <img src={image.src} alt={image.title} className="w-full h-full object-cover"/>
                         <div className="absolute inset-0 bg-black/40"/>
                         
