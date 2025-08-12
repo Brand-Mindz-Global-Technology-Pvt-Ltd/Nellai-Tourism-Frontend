@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import { Phone, MessageCircle, Mail, Search } from "lucide-react";
+import { Phone, MessageCircle, Mail, Search, User, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Header() {
+  const { user, logout } = useAuth();
+
   return (
     <header className="w-full">
       {/* Top Contact Bar */}
@@ -78,13 +81,31 @@ export default function Header() {
             </Link>
           </nav>
           
-          {/* Search and Sign In */}
+          {/* Search and User Actions */}
           <div className="flex items-center gap-4">
             <Search className="w-6 h-6 text-black cursor-pointer hover:text-tourism-primary transition-colors" />
             <div className="w-px h-5 bg-gray-300" />
-            <Link to="/signin" className="bg-tourism-primary text-white px-6 py-2 rounded-2xl text-sm font-medium hover:bg-tourism-primary/90 transition-colors">
-              Sign in / Sign up
-            </Link>
+            {user ? (
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 text-sm">
+                  <User className="w-4 h-4" />
+                  <span className="hidden sm:inline">
+                    {user.firstName} {user.lastName}
+                  </span>
+                </div>
+                <button
+                  onClick={logout}
+                  className="flex items-center gap-2 text-red-600 hover:text-red-700 transition-colors text-sm"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span className="hidden sm:inline">Logout</span>
+                </button>
+              </div>
+            ) : (
+              <Link to="/signin" className="bg-tourism-primary text-white px-6 py-2 rounded-2xl text-sm font-medium hover:bg-tourism-primary/90 transition-colors">
+                Sign in / Sign up
+              </Link>
+            )}
           </div>
         </div>
       </div>
