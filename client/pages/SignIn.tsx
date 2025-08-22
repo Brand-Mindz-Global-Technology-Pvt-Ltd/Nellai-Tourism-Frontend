@@ -13,7 +13,7 @@ export default function SignIn() {
   const { toast } = useToast();
   
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);  
   const [showOtpForm, setShowOtpForm] = useState(false);
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [isRequestingOtp, setIsRequestingOtp] = useState(false);
