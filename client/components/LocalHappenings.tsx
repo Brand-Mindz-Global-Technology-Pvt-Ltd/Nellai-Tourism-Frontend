@@ -69,20 +69,20 @@ export default function LocalHappenings() {
   }, []);
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-[1440px] mx-auto">
         <div className="mb-12">
-          <h2 className="text-black font-sen text-3xl md:text-4xl font-semibold uppercase mb-4">
+          <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase mb-3">
             Find Local Happenings
           </h2>
-          <p className="text-black/80 font-poppins text-base max-w-4xl">
+          <p className="text-black/80 font-poppins text-sm max-w-3xl">
             Choose your events with ease—many are supported by well-developed infrastructure, offering a wide range of venues, dining options, and experiences tailored to suit every type of attendee.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {/* Left Column - First item (Large) */}
-          <div className="relative h-[600px] group cursor-pointer">
+          <div className="relative h-[480px] group cursor-pointer">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
               style={{ backgroundImage: `url('${allHappenings[currentImage1].image}')` }}
@@ -90,10 +90,10 @@ export default function LocalHappenings() {
             <div className="absolute inset-0 bg-black/40" />
             
             <div className="absolute bottom-8 left-8 text-white">
-              <h3 className="text-3xl font-poppins font-semibold mb-4">
+              <h3 className="text-2xl font-poppins font-semibold mb-3">
                 {allHappenings[currentImage1].title}
               </h3>
-              <button className={`${allHappenings[currentImage1].buttonColor} text-white px-10 py-3 font-poppins text-base font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+              <button className={`${allHappenings[currentImage1].buttonColor} text-white px-8 py-2.5 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                 Book now
               </button>
             </div>
@@ -102,7 +102,7 @@ export default function LocalHappenings() {
           {/* Right Column - Two stacked items */}
           <div className="flex flex-col">
             {/* Second item */}
-            <div className="relative h-[300px] group cursor-pointer">
+            <div className="relative h-[240px] group cursor-pointer">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url('${allHappenings[currentImage2].image}')` }}
@@ -110,17 +110,17 @@ export default function LocalHappenings() {
               <div className="absolute inset-0 bg-black/40" />
               
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-poppins font-semibold mb-3">
+                <h3 className="text-xl font-poppins font-semibold mb-2">
                   {allHappenings[currentImage2].title}
                 </h3>
-                <button className={`${allHappenings[currentImage2].buttonColor} text-white px-8 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button className={`${allHappenings[currentImage2].buttonColor} text-white px-7 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                   Book now
                 </button>
               </div>
             </div>
 
             {/* Third item */}
-            <div className="relative h-[300px] group cursor-pointer">
+            <div className="relative h-[240px] group cursor-pointer">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url('${allHappenings[currentImage3].image}')` }}
@@ -128,10 +128,10 @@ export default function LocalHappenings() {
               <div className="absolute inset-0 bg-black/40" />
               
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-poppins font-semibold mb-3">
+                <h3 className="text-xl font-poppins font-semibold mb-2">
                   {allHappenings[currentImage3].title}
                 </h3>
-                <button className={`${allHappenings[currentImage3].buttonColor} text-white px-8 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button className={`${allHappenings[currentImage3].buttonColor} text-white px-7 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                   Book now
                 </button>
               </div>

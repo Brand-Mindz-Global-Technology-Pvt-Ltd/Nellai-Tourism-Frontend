@@ -29,7 +29,7 @@ export default function TravelCategories() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 auto-rows-fr">
           {categories.map((category, index) => (
@@ -38,7 +38,7 @@ export default function TravelCategories() {
               className={`relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer ${
                 category.featured ? 'lg:col-span-2 lg:row-span-1' : ''
               } ${index < 2 ? 'md:col-span-1' : ''}`}
-              style={{ minHeight: '300px' }}
+              style={{ minHeight: '220px' }}
             >
               {/* Background Image */}
               <div 
@@ -54,12 +54,12 @@ export default function TravelCategories() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-poppins font-semibold mb-4">
+              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-poppins font-semibold mb-3">
                   {category.title}
                 </h3>
                 
-                <button className={`${category.buttonColor} text-white px-10 py-3 font-poppins text-base font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button className={`${category.buttonColor} text-white px-8 py-2.5 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
                   Book now
                 </button>
               </div>

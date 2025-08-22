@@ -29,20 +29,20 @@ export default function EventsSection() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-[1440px] mx-auto">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-black font-sen text-3xl md:text-4xl font-semibold uppercase">
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase">
             Events
           </h2>
           
           {/* Navigation Arrows */}
-          <div className="flex gap-3">
-            <button className="w-7 h-7 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors">
-              <ChevronLeft className="w-4 h-4 text-gray-600" />
+          <div className="flex gap-2.5">
+            <button className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors">
+              <ChevronLeft className="w-3.5 h-3.5 text-gray-600" />
             </button>
-            <button className="w-7 h-7 bg-tourism-primary rounded-full flex items-center justify-center hover:bg-tourism-primary/90 transition-colors">
-              <ChevronRight className="w-4 h-4 text-white" />
+            <button className="w-6 h-6 bg-tourism-primary rounded-full flex items-center justify-center hover:bg-tourism-primary/90 transition-colors">
+              <ChevronRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
         </div>
@@ -50,15 +50,15 @@ export default function EventsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Large Event Card */}
           <div className="lg:col-span-2">
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg group">
+            <div className="relative h-[420px] rounded-xl overflow-hidden shadow-lg group">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                 style={{ backgroundImage: `url('${events[0].image}')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-2xl md:text-3xl font-poppins font-semibold mb-4 leading-tight">
+              <div className="absolute bottom-5 left-5 right-5 text-white">
+                <h3 className="text-xl md:text-2xl font-poppins font-semibold mb-3 leading-tight">
                   {events[0].title}
                 </h3>
                 
@@ -66,11 +66,11 @@ export default function EventsSection() {
                   <img 
                     src={events[0].avatar}
                     alt={events[0].author}
-                    className="w-16 h-16 rounded-full object-cover"
+                    className="w-14 h-14 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-poppins text-lg font-medium">{events[0].author}</p>
-                    <p className="font-poppins text-sm opacity-90">{events[0].date}</p>
+                    <p className="font-poppins text-base font-medium">{events[0].author}</p>
+                    <p className="font-poppins text-xs opacity-90">{events[0].date}</p>
                   </div>
                 </div>
               </div>
@@ -78,17 +78,17 @@ export default function EventsSection() {
           </div>
 
           {/* Small Event Cards */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {events.slice(1).map((event, index) => (
-              <div key={index} className="relative h-[240px] rounded-xl overflow-hidden shadow-lg group">
+              <div key={index} className="relative h-[200px] rounded-xl overflow-hidden shadow-lg group">
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                   style={{ backgroundImage: `url('${event.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h4 className="text-lg font-poppins font-semibold mb-3 leading-tight">
+                <div className="absolute bottom-3 left-3 right-3 text-white">
+                  <h4 className="text-base font-poppins font-semibold mb-2 leading-tight">
                     {event.title}
                   </h4>
                   
@@ -96,11 +96,11 @@ export default function EventsSection() {
                     <img 
                       src={event.avatar}
                       alt={event.author}
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-10 h-10 rounded-full object-cover"
                     />
                     <div>
-                      <p className="font-poppins text-sm font-medium">{event.author}</p>
-                      <p className="font-poppins text-xs opacity-90">{event.date}</p>
+                      <p className="font-poppins text-xs font-medium">{event.author}</p>
+                      <p className="font-poppins text-[10px] opacity-90">{event.date}</p>
                     </div>
                   </div>
                 </div>

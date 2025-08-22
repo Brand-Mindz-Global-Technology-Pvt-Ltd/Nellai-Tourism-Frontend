@@ -23,7 +23,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24 relative">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24 relative">
       {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -35,21 +35,21 @@ export default function Testimonials() {
       </div>
 
       <div className="relative z-10 max-w-[1440px] mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-black font-sen text-3xl md:text-4xl font-semibold uppercase mb-4">
+        <div className="text-center mb-10">
+          <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase mb-3">
             Testimonials
           </h2>
-          <p className="text-black/70 font-poppins text-xl font-medium">
+          <p className="text-black/70 font-poppins text-lg font-medium">
             we'd love to hear from our customers
           </p>
           
           {/* Navigation Arrows */}
-          <div className="flex justify-center gap-3 mt-6">
-            <button className="w-7 h-7 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors">
-              <ChevronLeft className="w-4 h-4 text-gray-600" />
+          <div className="flex justify-center gap-2.5 mt-6">
+            <button className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors">
+              <ChevronLeft className="w-3.5 h-3.5 text-gray-600" />
             </button>
-            <button className="w-7 h-7 bg-tourism-primary rounded-full flex items-center justify-center hover:bg-tourism-primary/90 transition-colors">
-              <ChevronRight className="w-4 h-4 text-white" />
+            <button className="w-6 h-6 bg-tourism-primary rounded-full flex items-center justify-center hover:bg-tourism-primary/90 transition-colors">
+              <ChevronRight className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
         </div>
@@ -65,12 +65,12 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-tourism-gold text-tourism-gold" />
+                  <Star key={star} className="w-4 h-4 fill-tourism-gold text-tourism-gold" />
                 ))}
               </div>
               
               {/* Testimonial Text */}
-              <p className="text-black/80 font-poppins text-base font-medium leading-relaxed mb-6">
+              <p className="text-black/80 font-poppins text-sm font-medium leading-relaxed mb-5">
                 {testimonial.text}
               </p>
               
@@ -79,13 +79,13 @@ export default function Testimonials() {
                 <img 
                   src={testimonial.avatar}
                   alt={testimonial.author}
-                  className="w-14 h-14 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="text-black font-poppins text-lg font-medium">
+                  <h4 className="text-black font-poppins text-base font-medium">
                     {testimonial.author}
                   </h4>
-                  <p className="text-black/80 font-poppins text-sm">
+                  <p className="text-black/80 font-poppins text-xs">
                     {testimonial.location}
                   </p>
                 </div>

@@ -28,7 +28,7 @@ export default function PopularDestinations() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24 bg-tourism-light relative overflow-hidden">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24 bg-tourism-light relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 opacity-10">
         <img 
@@ -46,17 +46,17 @@ export default function PopularDestinations() {
       </div>
 
       <div className="relative z-10 max-w-[1440px] mx-auto">
-        <div className="flex flex-col lg:flex-row justify-between items-start mb-12">
+        <div className="flex flex-col lg:flex-row justify-between items-start mb-10">
           <div>
-            <h2 className="text-black font-sen text-3xl md:text-4xl font-semibold uppercase mb-4">
+            <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase mb-3">
               Popular Destination
             </h2>
-            <p className="text-black/80 font-poppins text-base max-w-2xl">
+            <p className="text-black/80 font-poppins text-sm max-w-2xl">
               These destinations often have well-developed tourism infrastructure, offering a range of accommodations, dining options, and activities that cater to various types of travelers.
             </p>
           </div>
           
-          <button className="mt-6 lg:mt-0 bg-tourism-primary text-white px-8 py-3 rounded-xl font-poppins text-lg font-semibold hover:bg-tourism-primary/90 transition-colors">
+          <button className="mt-6 lg:mt-0 bg-tourism-primary text-white px-6 py-2.5 rounded-xl font-poppins text-sm font-semibold hover:bg-tourism-primary/90 transition-colors">
             Explore more
           </button>
         </div>
@@ -65,7 +65,7 @@ export default function PopularDestinations() {
           {destinations.map((destination, index) => (
             <div 
               key={index}
-              className="relative h-[320px] md:h-[380px] lg:h-[450px] rounded-xl overflow-hidden shadow-lg group cursor-pointer"
+              className="relative h-[260px] md:h-[320px] lg:h-[380px] rounded-xl overflow-hidden shadow-lg group cursor-pointer"
             >
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
@@ -74,11 +74,11 @@ export default function PopularDestinations() {
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               
-              <div className="absolute bottom-6 left-6 text-white">
-                <div className="text-3xl md:text-4xl font-poppins font-semibold mb-2">
+              <div className="absolute bottom-5 left-5 text-white">
+                <div className="text-2xl md:text-3xl font-poppins font-semibold mb-2">
                   {destination.number}
                 </div>
-                <h3 className="text-lg md:text-xl font-poppins font-semibold">
+                <h3 className="text-base md:text-lg font-poppins font-semibold">
                   {destination.title}
                 </h3>
               </div>

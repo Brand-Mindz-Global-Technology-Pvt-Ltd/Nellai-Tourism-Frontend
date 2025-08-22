@@ -18,13 +18,13 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-[1440px] mx-auto">
-        <h2 className="text-black font-sen text-4xl md:text-5xl font-semibold text-center uppercase tracking-wider mb-16">
+        <h2 className="text-black font-sen text-3xl md:text-4xl font-semibold text-center uppercase tracking-wider mb-12">
           Our Gallery
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 h-[600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 h-[480px]">
           {/* Left Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-lg">
             <img 
