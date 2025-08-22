@@ -10,6 +10,7 @@ import EventsSection from "../components/EventsSection";
 import SocialMediaSection from "../components/SocialMediaSection";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
+import DailyDeals from "@/components/DailyDeals";
 
 export default function Index() {
   return (
@@ -21,8 +22,8 @@ export default function Index() {
       <AdventureSection />
       <LocalHappenings />
       <PopularDestinations />
-      <Gallery />
       <EventsSection />
+      <DailyDeals />
       <SocialMediaSection />
       <Testimonials />
       <Footer />

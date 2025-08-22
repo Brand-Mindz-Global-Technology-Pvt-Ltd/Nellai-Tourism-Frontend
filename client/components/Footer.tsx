@@ -1,156 +1,224 @@
 import { MapPin, Phone, MessageCircle, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// SVG icon components for visible social icons
+const FacebookIcon = () => (
+  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#" />
+    <path
+      d="M18.5 16H20l.5-3h-2V11.5c0-.6.2-1 1-1h1.1V8.2c-.2 0-.9-.2-1.7-.2-1.7 0-2.9 1-2.9 2.8V13H13v3h2v7h3.5v-7z"
+      fill="#fff"
+    />
+  </svg>
+);
+
+const XIcon = () => (
+  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#" />
+    <path
+      d="M11.5 10.5h2.1l2.4 3.2 2.4-3.2h2.1l-3.5 4.7 3.7 4.8h-2.1l-2.6-3.5-2.6 3.5h-2.1l3.7-4.8-3.5-4.7z"
+      fill="#fff"
+    />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="" />
+    <rect x="10" y="13" width="3" height="9" rx="1" fill="#fff" />
+    <rect x="19" y="16" width="3" height="6" rx="1" fill="#fff" />
+    <circle cx="11.5" cy="11.5" r="1.5" fill="#fff" />
+    <rect x="15" y="16" width="3" height="1.5" rx="0.75" fill="#fff" />
+    <rect x="15" y="17.5" width="3" height="4.5" rx="1" fill="#fff" />
+  </svg>
+);
+
+const InstagramIcon = () => (
+  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#" />
+    <rect x="10" y="10" width="12" height="12" rx="4" fill="#fff" />
+    <circle cx="16" cy="16" r="3" fill="#888" />
+    <circle cx="20.5" cy="11.5" r="1" fill="#888" />
+  </svg>
+);
+
+const socialLinks = [
+  {
+    href: "https://facebook.com/",
+    label: "Facebook",
+    icon: <FacebookIcon />,
+  },
+  {
+    href: "https://x.com/",
+    label: "X (Twitter)",
+    icon: <XIcon />,
+  },
+  {
+    href: "https://linkedin.com/",
+    label: "LinkedIn",
+    icon: <LinkedInIcon />,
+  },
+  {
+    href: "https://instagram.com/",
+    label: "Instagram",
+    icon: <InstagramIcon />,
+  },
+];
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-white">
-      {/* Call to Action Section */}
-      <section className="relative w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24">
-        <div 
+    <footer className="w-full bg-white text-black">
+      {/* === Top CTA Section === */}
+      <section className="relative w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/c036b52ffa11a3811f2636e4d28da869b70f578c?width=2912')"
+            backgroundImage:
+              "url('https://api.builder.io/api/v1/image/assets/TEMP/c036b52ffa11a3811f2636e4d28da869b70f578c?width=2912')",
           }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <h2 className="text-white font-oswald text-3xl md:text-4xl font-semibold mb-3">
+          <h2 className="text-white text-3xl md:text-4xl font-bold mb-4 uppercase">
             READY TO EXPLORE THE WORLD?
           </h2>
-          <p className="text-white font-poppins text-sm font-medium mb-6">
+          <p className="text-white/90 text-sm md:text-base mb-6">
             Let us help you create unforgettable memories with our special tours and destinations.
           </p>
-          <button className="bg-tourism-primary text-white px-6 py-2.5 rounded font-poppins text-sm font-semibold hover:bg-tourism-primary/90 transition-colors">
+          <button className="bg-yellow-400 text-black px-8 py-3 rounded font-semibold hover:bg-yellow-500 transition">
             Book now
           </button>
         </div>
       </section>
 
-      {/* Branches Section */}
-      <div className="bg-tourism-primary py-5 px-4 md:px-8 lg:px-16 xl:px-24">
-        <div className="max-w-[1440px] mx-auto text-center">
-          <h3 className="text-white font-poppins text-sm font-medium mb-2">
-            Our Branches
-          </h3>
-          <div className="w-40 h-px bg-white mx-auto mb-3"></div>
-          <p className="text-white font-poppins text-xs tracking-wider">
-            Chennai | Coimbatore | Trichy | Madurai | Tutucoin | Nagarcoil |Cochin | Bangalore | Mumbai | UAE -Dubai | China | Russia | Singapore |Europe -Italy | United Kingdom | USA
-          </p>
-        </div>
-      </div>
-
-      {/* Main Footer */}
-      <div className="py-10 px-4 md:px-8 lg:px-16 xl:px-24">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* === Main Footer === */}
+      <div className="py-12 px-4 md:px-8 lg:px-16 xl:px-24">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/1dce51ba7eddab862e1e7859e7e4443daaa3d47a?width=306" 
-              alt="Nellai Tourism Logo" 
-              className="h-9 w-auto mb-5"
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/1dce51ba7eddab862e1e7859e7e4443daaa3d47a?width=306"
+              alt="Nellai Tours Logo"
+              className="h-10 w-auto mb-4"
             />
-            <p className="text-gray-600 font-poppins text-xs mb-5 leading-relaxed">
-              Radan holidays is an online travel agency operated by a well-established & reputed Travel Management Company Radan Travel & Tours
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              Nellai Tours is an online travel agency operated by a well-established & 
+              reputed Travel Management Company Nellai Tours & Tours
             </p>
-            
-            {/* Social Media */}
+
+            {/* Social Icons */}
             <div className="flex gap-4">
-              <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center hover:bg-tourism-primary transition-colors cursor-pointer">
-                <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 17 17" fill="currentColor">
-                  <path d="M9.45573 9.12467H11.1224L11.7891 6.45801H9.45573V5.12467C9.45573 4.43801 9.45573 3.79134 10.7891 3.79134H11.7891V1.55134C11.5717 1.52267 10.7511 1.45801 9.8844 1.45801C8.0744 1.45801 6.78906 2.56267 6.78906 4.59134V6.45801H4.78906V9.12467H6.78906V14.7913H9.45573V9.12467Z"/>
-                </svg>
-              </div>
-              <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center hover:bg-tourism-primary transition-colors cursor-pointer">
-                <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 17 17" fill="currentColor">
-                  <path d="M0.789062 1.45801H2.45573L12.4557 14.7913H10.7891L0.789062 1.45801ZM3.78906 1.45801H5.45573L15.4557 14.7913H13.7891L3.78906 1.45801Z"/>
-                </svg>
-              </div>
-              <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center hover:bg-tourism-primary transition-colors cursor-pointer">
-                <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 17 17" fill="currentColor">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M12.125 2.125C12.6554 2.125 13.1641 2.33571 13.5392 2.71079C13.9143 3.08586 14.125 3.59457 14.125 4.125V12.125C14.125 12.6554 13.9143 13.1641 13.5392 13.5392C13.1641 13.9143 12.6554 14.125 12.125 14.125H4.125C3.59457 14.125 3.08586 13.9143 2.71079 13.5392C2.33571 13.1641 2.125 12.6554 2.125 12.125V4.125C2.125 3.59457 2.33571 3.08586 2.71079 2.71079C3.08586 2.33571 3.59457 2.125 4.125 2.125H12.125Z"/>
-                </svg>
-              </div>
-              <div className="w-6 h-6 bg-gray-400 rounded-full flex items-center justify-center hover:bg-tourism-primary transition-colors cursor-pointer">
-                <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 17 17" fill="currentColor">
-                  <path d="M8.81332 1.45801C9.56332 1.46001 9.94398 1.46401 10.2726 1.47334L10.402 1.47801C10.5513 1.48334 10.6986 1.49001 10.8766 1.49801C11.586 1.53134 12.07 1.64334 12.4946 1.80801Z"/>
-                </svg>
-              </div>
+              {socialLinks.map(({ href, label, icon }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-400 hover:bg-tourism-primary transition-colors cursor-pointer"
+                >
+                  {icon}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-tourism-primary font-poppins text-sm font-medium mb-5">
-              Quick links
-            </h4>
-            <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-600 font-poppins text-xs hover:text-tourism-primary transition-colors">Home</Link></li>
-              <li><Link to="/packages" className="text-gray-600 font-poppins text-xs hover:text-tourism-primary transition-colors">Packages</Link></li>
-              <li><Link to="/about" className="text-gray-600 font-poppins text-xs hover:text-tourism-primary transition-colors">About us</Link></li>
-              <li><Link to="/contact" className="text-gray-600 font-poppins text-xs hover:text-tourism-primary transition-colors">Contact us</Link></li>
+            <h4 className="text-black font-semibold mb-4">Quick links</h4>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <Link to="/" className="hover:text-tourism-primary">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/packages" className="hover:text-tourism-primary">
+                  Packages
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-tourism-primary">
+                  About us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-tourism-primary">
+                  Contact us
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Office Locations */}
           <div>
-            <h4 className="text-tourism-primary font-poppins text-sm font-medium mb-5">
-              Corporate Office
-            </h4>
-            <div className="flex items-start gap-3 mb-6">
-              <MapPin className="w-3 h-4 text-tourism-primary mt-1 flex-shrink-0" />
-              <p className="text-gray-600 font-poppins text-xs leading-relaxed">
+            <h4 className="text-black font-semibold mb-4">Corporate Office</h4>
+            <div className="flex items-start gap-3 mb-6 text-sm text-gray-600">
+              <MapPin className="w-4 h-4 text-tourism-primary mt-1" />
+              <p>
                 No: 138 Arcot Road,<br />
-                Kodambakkam, Chennai Tamilnadu, India-600024
+                Kodambakkam, Chennai<br />
+                Tamilnadu, India - 600024
               </p>
             </div>
-            
-            <h4 className="text-tourism-primary font-poppins text-sm font-medium mb-5">
-              Head Office
-            </h4>
-            <div className="flex items-start gap-3">
-              <MapPin className="w-3 h-4 text-tourism-primary mt-1 flex-shrink-0" />
-              <p className="text-gray-600 font-poppins text-xs leading-relaxed">
+
+            <h4 className="text-black font-semibold mb-4">Head Office</h4>
+            <div className="flex items-start gap-3 text-sm text-gray-600">
+              <MapPin className="w-4 h-4 text-tourism-primary mt-1" />
+              <p>
                 No:1 Paya Lebar Link,<br />
                 #04-01 Paya Lebar Quarter<br />
-                Singapore-408533
+                Singapore - 408533
               </p>
             </div>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-tourism-primary font-poppins text-sm font-medium mb-5">
-              Contact us
-            </h4>
-            <div className="space-y-4">
+            <h4 className="text-black font-semibold mb-4">Contact us</h4>
+            <div className="space-y-4 text-sm text-gray-600">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-tourism-primary" />
-                <span className="text-gray-600 font-poppins text-xs">+91 81484 32978</span>
+                <span>+65 85022187</span>
               </div>
               <div className="flex items-center gap-3">
                 <MessageCircle className="w-4 h-4 text-tourism-primary" />
-                <span className="text-gray-600 font-poppins text-xs">+91 81484 32978</span>
+                <span>+65 85022187</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-tourism-primary" />
-                <span className="text-gray-600 font-poppins text-xs">radanholidays@gmail.com</span>
+                <span>sales@nellaitours.com</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-300 py-6 px-4 md:px-8 lg:px-16 xl:px-24">
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col md:flex-row items-center gap-4 text-xs font-poppins text-black">
-            <span>Copyright © 2025 Radan Holidays. All rights reserved</span>
-            <div className="flex items-center gap-4 border-l border-gray-300 pl-4">
-              <Link to="/privacy" className="hover:text-tourism-primary transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-tourism-primary transition-colors">Terms & Conditions</Link>
-            </div>
+      {/* === Branches Section === */}
+      <div className="bg-tourism-primary py-4 px-4">
+        <div className="max-w-[1440px] mx-auto text-center">
+          <h3 className="text-white font-medium text-sm mb-2">Our Branches</h3>
+          <p className="text-white text-xs leading-relaxed">
+            Chennai | Coimbatore | Trichy | Madurai | Tutucorin | Nagarcoil | Cochin | 
+            Bangalore | Mumbai | UAE - Dubai | China | Russia | Singapore | Europe - Italy | 
+            United Kingdom | USA
+          </p>
+        </div>
+      </div>
+
+      {/* === Bottom Bar === */}
+      <div className="border-t border-gray-300 py-4">
+        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-3">
+          <span>Copyright © 2025 Nellai Tours. All rights reserved</span>
+          <div className="flex gap-4">
+            <Link to="/privacy" className="hover:text-tourism-primary">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="hover:text-tourism-primary">
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>
