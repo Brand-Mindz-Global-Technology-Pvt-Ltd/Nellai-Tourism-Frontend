@@ -2,64 +2,89 @@ import { MapPin, Calendar, Users } from "lucide-react";
 
 export default function SearchSection() {
   return (
-    <section className="relative w-full py-16 px-4 md:px-8 lg:px-16 xl:px-24">
+    <section className="relative w-full min-h-[350px] md:h-[500px] flex items-center justify-center">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/images/hero/search-background.jpg')"
         }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/40" />
       </div>
-      
+
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-        <h2 className="text-white font-poppins text-xl md:text-2xl font-bold mb-3">
+      <div className="relative z-10 text-center text-white max-w-4xl w-full px-2 sm:px-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
           Discover Your Favorite Place with Us
         </h2>
-        
-        <p className="text-white font-poppins text-sm mb-8 max-w-3xl mx-auto">
-          This was our first time booking with this service, and it won't be the last!<br />
-          Every detail of our trip was perfectly organized, and we didn't have to worry about a thing.
+        <p className="text-xs sm:text-sm md:text-base mb-6 md:mb-10 leading-relaxed">
+          This was our first time booking with this service, and it won’t be the
+          last! <br className="hidden md:block" />
+          Every detail of our trip was perfectly organized, and we didn’t have
+          to worry about a thing.
         </p>
-        
-        {/* Search Form */}
-        <div className="bg-white rounded-2xl p-5 md:p-6 max-w-3xl mx-auto shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            {/* Destination */}
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input 
-                type="text" 
-                placeholder="Where are you going?"
-                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tourism-primary focus:border-transparent"
+
+        {/* Search Container */}
+        <div className="
+          bg-white rounded-2xl shadow-lg
+          flex flex-col sm:flex-row items-stretch sm:items-center
+          overflow-hidden w-full max-w-lg sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto
+        ">
+          {/* Location */}
+          <div className="
+            flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 flex-1
+            border-b sm:border-b-0 sm:border-r border-gray-200
+          ">
+            <MapPin className="w-5 h-5 text-tourism-primary" />
+            <div className="text-left w-full">
+              <p className="text-xs font-semibold text-gray-500">Location</p>
+              <input
+                type="text"
+                placeholder="Search For A Destination"
+                className="w-full text-xs sm:text-sm text-gray-700 focus:outline-none bg-transparent"
               />
             </div>
-            
-            {/* Date */}
-            <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input 
-                type="date" 
-                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tourism-primary focus:border-transparent"
+          </div>
+
+          {/* Events / Guests */}
+          <div className="
+            flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 flex-1
+            border-b sm:border-b-0 sm:border-r border-gray-200
+          ">
+            <Users className="w-5 h-5 text-tourism-primary" />
+            <div className="text-left w-full">
+              <p className="text-xs font-semibold text-gray-500">Events</p>
+              <input
+                type="text"
+                placeholder="How many Guests?"
+                className="w-full text-xs sm:text-sm text-gray-700 focus:outline-none bg-transparent"
               />
             </div>
-            
-            {/* Travelers */}
-            <div className="relative">
-              <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <select className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tourism-primary focus:border-transparent">
-                <option>Travelers</option>
-                <option>1 Traveler</option>
-                <option>2 Travelers</option>
-                <option>3 Travelers</option>
-                <option>4+ Travelers</option>
-              </select>
+          </div>
+
+          {/* Date */}
+          <div className="
+            flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 flex-1
+            border-b sm:border-b-0 sm:border-r border-gray-200
+          ">
+            <Calendar className="w-5 h-5 text-tourism-primary" />
+            <div className="text-left w-full">
+              <p className="text-xs font-semibold text-gray-500">Date</p>
+              <input
+                type="date"
+                className="w-full text-xs sm:text-sm text-gray-700 focus:outline-none bg-transparent"
+              />
             </div>
-            
-            {/* Search Button */}
-            <button className="bg-tourism-primary text-white px-6 py-2.5 rounded-lg font-poppins text-sm font-semibold hover:bg-tourism-primary/90 transition-colors">
+          </div>
+
+          {/* Search Button */}
+          <div className="px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center">
+            <button className="
+              bg-tourism-primary hover:bg-tourism-primary/90 text-white font-semibold
+              px-6 sm:px-8 py-2.5 sm:py-3 rounded-full shadow-md transition w-full sm:w-auto
+              text-sm sm:text-base
+            ">
               Search
             </button>
           </div>
