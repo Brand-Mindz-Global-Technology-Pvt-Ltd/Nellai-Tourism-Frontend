@@ -32,9 +32,14 @@ export default function EventsSection() {
     <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24">
       <div className="max-w-[1440px] mx-auto">
         <div className="flex justify-between items-center mb-10">
-          <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase">
-            Events
-          </h2>
+          <div>
+            <h2 className="text-black  text-2xl md:text-3xl font-normal font-lemo uppercase">
+              Destination Diaries
+            </h2>
+            <p className="text-black/80 font-normal text-base md:text-lg max-w-3xl mt-2" style={{ fontFamily: 'Jost, sans-serif' }}>
+            Choose your events with ease—many are supported by well-developed infrastructure, offering a wide range of venues, dining options, and experiences tailored to suit every type of attendee.
+            </p>
+          </div>
           
           {/* Navigation Arrows */}
           <div className="flex gap-2.5">

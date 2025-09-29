@@ -17,6 +17,8 @@ export default {
         'poppins': ['Poppins', 'sans-serif'],
         'sen': ['Sen', 'sans-serif'],
         'oswald': ['Oswald', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        'lemo': ['Lemon Milk', 'sans-serif'],
       },
       colors: {
         // Tourism brand colors

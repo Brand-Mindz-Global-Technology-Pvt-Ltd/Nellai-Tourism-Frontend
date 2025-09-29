@@ -52,7 +52,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative w-full py-12 md:py-16 px-4 md:px-8 lg:px-16 xl:px-24 overflow-hidden">
+    <section className="relative w-full py-12 md:py-16 px-4 md:px-8 lg:px-16 xl:px-28 overflow-hidden">
       {/* Background image (wavy lines) + soft white tint */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -68,10 +68,10 @@ export default function Testimonials() {
         {/* Header row: left-aligned title/subtitle, arrows on the right */}
         <div className="flex items-start justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase">
+            <h2 className="text-black font-lemo text-2xl md:text-3xl font-normal uppercase">
               Testimonials
             </h2>
-            <p className="mt-2 text-black/70 font-poppins text-sm md:text-base">
+            <p className="mt-2 text-black/80 font-poppins font-normal text-base md:text-lg" style={{ fontFamily: 'Jost, sans-serif' }}>
               we’d love to hear from our customers
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Text */}
-                <p className="text-black/80 font-poppins text-sm md:text-[15px] leading-relaxed mb-5">
+                <p className="text-black/80 font-normal text-base md:text-lg leading-relaxed mb-5" style={{ fontFamily: 'Jost, sans-serif' }}>
                   “{t.text}”
                 </p>
 

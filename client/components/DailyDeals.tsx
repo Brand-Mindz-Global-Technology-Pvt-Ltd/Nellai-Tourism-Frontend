@@ -10,83 +10,39 @@ export default function DailyDeals() {
 
   const deals = [
     {
-      city: "Thailand",
+      city: "Singapore cruise",
       region: "Asia",
       days: 8,
-      people: "25K",
-      rating: 4.8,
-      price: 38000,
-      oldPrice: 48000,
-      image:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi.",
+      people: "25K People Going",
+      rating: 5,
+      price: 260,
+      oldPrice: 480,
+      image: "/images/daily-deals/section7 -1.jpg",
+      desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
     },
     {
       city: "Malaysia",
       region: "Asia",
       days: 5,
-      people: "25K",
+      people: "25K People Going",
       rating: 4.7,
-      price: 43000,
-      oldPrice: 53000,
-      image:
-        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "Et labore harum non nobis ipsum quam molestiae mollitia et corporis praesentium.",
+      price: 430,
+      oldPrice: 530,
+      image: "/images/daily-deals/section7 -2.jpg",
+      desc: "Et labore harum non nobis ipsum quam molestiae mollitia et corporis praesentium a laudantium internos.",
     },
     {
       city: "Singapore",
       region: "Asia",
       days: 6,
-      people: "26K",
+      people: "26K People Going",
       rating: 4.9,
-      price: 82000,
-      oldPrice: 95000,
-      image:
-        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "Destinations with great infrastructure, dining options, and city experiences.",
+      price: 820,
+      oldPrice: 950,
+      image: "/images/daily-deals/section7 -3.jpg",
+      desc: "Destinations with great infrastructure, dining options, and city experiences tailored to suit every type of traveler.",
     },
-    {
-      city: "Bali",
-      region: "Asia",
-      days: 7,
-      people: "18K",
-      rating: 4.6,
-      price: 56000,
-      oldPrice: 64000,
-      image:
-        "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "Beaches, temples, and serene landscapes for all types of travelers.",
-    },
-    {
-      city: "Dubai",
-      region: "Middle East",
-      days: 4,
-      people: "30K",
-      rating: 4.7,
-      price: 76000,
-      oldPrice: 89000,
-      image:
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "Skylines, shopping, and desert adventures packed into short stays.",
-    },
-    {
-      city: "Paris",
-      region: "Europe",
-      days: 5,
-      people: "22K",
-      rating: 4.8,
-      price: 99000,
-      oldPrice: 112000,
-      image:
-        "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80",
-      desc:
-        "Museums, cafes, and romantic streets in the city of lights.",
-    },
+    
   ];
 
   const scrollByCards = (dir = 1) => {
@@ -98,16 +54,16 @@ export default function DailyDeals() {
   };
 
   return (
-    <section className="w-full py-12">
+    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-20">
       {/* Added curved edge to the main rectangle container */}
       <div className="max-w-[1440px] mx-auto px-6 rounded-3xl bg-white shadow-none">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-wide">
+            <h2 className="text-black  text-2xl md:text-3xl font-normal uppercase mb-3 font-lemo">
               DAILY DEALS
             </h2>
-            <p className="text-sm md:text-base text-gray-600 mt-2 max-w-3xl leading-relaxed">
+            <p className="text-black/80 font-normal text-base md:text-lg max-w-3xl leading-relaxed" style={{ fontFamily: 'Jost, sans-serif' }}>
               These destinations often have well-developed tourism infrastructure, offering a
               range of accommodations, dining options, and activities that cater to various types
               of travelers.
@@ -116,7 +72,7 @@ export default function DailyDeals() {
 
           <button
             onClick={() => scrollByCards(1)}
-            className="h-10 px-4 rounded-full bg-indigo-700 text-white text-sm font-semibold hover:bg-indigo-800 transition"
+            className="h-10 px-6 rounded-xl bg-tourism-primary text-white text-sm font-poppins font-semibold hover:bg-tourism-primary/90 transition-colors"
           >
             Explore more
           </button>
@@ -148,22 +104,23 @@ export default function DailyDeals() {
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
-                  {/* Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center gap-3 text-white text-xs">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
-                      <CalendarIcon className="w-4 h-4" />
-                      {d.days} Days
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
-                      <UsersIcon className="w-4 h-4" />
-                      {d.people} People Going
-                    </span>
-                  </div>
+                  {/* Content - Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    {/* Badges - Top Left of Content Area */}
+                    <div className="flex items-center gap-3 mb-4 text-white text-xs font-poppins">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
+                        <CalendarIcon className="w-4 h-4" />
+                        {d.days} Days
+                      </span>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
+                        <UsersIcon className="w-4 h-4" />
+                        {d.people}
+                      </span>
+                    </div>
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 text-white">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-2xl font-extrabold">{d.city}</h3>
+                    {/* Title and Rating */}
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-2xl font-poppins font-semibold capitalize">{d.city}</h3>
                       <div className="flex items-center gap-1 text-yellow-400">
                         {Array.from({ length: 5 }).map((_, idx) => (
                           <Star key={idx} filled={idx < Math.round(d.rating)} className="w-4 h-4" />
@@ -171,26 +128,30 @@ export default function DailyDeals() {
                       </div>
                     </div>
 
-                    <div className="mt-1 flex items-center gap-2 text-xs opacity-90">
-                      <GlobeIcon className="w-4 h-4" />
-                      <span>{d.region}</span>
+                    {/* Price and Location */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-baseline gap-3">
+                        <div className="text-3xl font-poppins font-bold tracking-tight text-yellow-400">
+                          $ {d.price}
+                        </div>
+                        <div className="text-base font-poppins line-through opacity-80">
+                          $ {d.oldPrice}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1 text-xs opacity-90 font-poppins">
+                        <GlobeIcon className="w-4 h-4" />
+                        <span>{d.region}</span>
+                      </div>
                     </div>
 
-                    <div className="mt-3 flex items-baseline gap-3">
-                      <div className="text-3xl font-extrabold tracking-tight text-yellow-400">
-                        ₹ {d.price.toLocaleString("en-IN")}
-                      </div>
-                      <div className="text-base line-through opacity-80">
-                        ₹ {d.oldPrice.toLocaleString("en-IN")}
-                      </div>
-                    </div>
-
-                    <p className="mt-2 text-sm text-white/90 leading-snug line-clamp-3">
+                    {/* Description */}
+                    <p className="text-sm text-white/90 leading-relaxed font-poppins mb-4">
                       {d.desc}
                     </p>
 
-                    <div className="mt-4 flex justify-end">
-                      <button className="px-5 py-2 rounded-md bg-indigo-700 text-white text-sm font-semibold hover:bg-indigo-800 transition">
+                    {/* Book Now Button */}
+                    <div className="flex justify-end">
+                      <button className="px-6 py-2.5 rounded-lg bg-blue-800 text-white text-sm font-poppins font-semibold hover:bg-blue-900 transition-colors">
                         Book Now
                       </button>
                     </div>

@@ -77,7 +77,7 @@ export default function Footer() {
               "url('https://api.builder.io/api/v1/image/assets/TEMP/c036b52ffa11a3811f2636e4d28da869b70f578c?width=2912')",
           }}
         >
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
         </div>
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
@@ -98,12 +98,22 @@ export default function Footer() {
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div>
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/1dce51ba7eddab862e1e7859e7e4443daaa3d47a?width=306"
-              alt="Nellai Tours Logo"
-              className="h-10 w-auto mb-4"
-            />
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+            <div className="flex items-center gap-2 mb-4">
+              <img
+                src="/images/logo/nellai-tours-logo.png"
+                alt="Nellai Tourism Logo"
+                className="h-10 w-auto"
+              />
+              <div>
+                <h1 className="text-base font-medium text-[#2C2A6B] leading-tight tracking-wider font-lemo">
+                  NELLAI TOURS
+                </h1>
+                <p className="text-[10px] font-normal text-black leading-tight tracking-widest font-lemo">
+                  WORLD CLASS TRAVEL
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6 font-poppins">
               Nellai Tours is an online travel agency operated by a well-established & 
               reputed Travel Management Company Nellai Tours & Tours
             </p>
@@ -201,24 +211,20 @@ export default function Footer() {
         <div className="max-w-[1440px] mx-auto text-center">
           <h3 className="text-white font-medium text-sm mb-2">Our Branches</h3>
           <p className="text-white text-xs leading-relaxed">
-            Chennai | Coimbatore | Trichy | Madurai | Tutucorin | Nagarcoil | Cochin | 
-            Bangalore | Mumbai | UAE - Dubai | China | Russia | Singapore | Europe - Italy | 
-            United Kingdom | USA
+             Singapore | India 
           </p>
         </div>
       </div>
 
       {/* === Bottom Bar === */}
-      <div className="border-t border-gray-300 py-4">
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-3">
-          <span>Copyright © 2025 Nellai Tours. All rights reserved</span>
-          <div className="flex gap-4">
-            <Link to="/privacy" className="hover:text-tourism-primary">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-tourism-primary">
-              Terms & Conditions
-            </Link>
+      <div className="py-6">
+        <div className="max-w-[1440px] mx-auto px-4">
+          {/* Top separator line */}
+          <div className="w-full h-px bg-gray-300 mb-4"></div>
+          
+          {/* Copyright text */}
+          <div className="text-center text-sm text-gray-600">
+            Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️</span> Brand Mindz | All rights reserved
           </div>
         </div>
       </div>

@@ -2,19 +2,19 @@ import { MapPin, Calendar, Users } from "lucide-react";
 
 export default function SearchSection() {
   return (
-    <section className="relative w-full min-h-[350px] md:h-[500px] flex items-center justify-center">
+    <section className="relative w-full min-h-[350px] md:h-[450px] flex justify-center">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-top"
         style={{
           backgroundImage: "url('/images/hero/search-background.jpg')"
         }}
       >
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white max-w-4xl w-full px-2 sm:px-4">
+      <div className="relative z-10 text-center text-white max-w-4xl w-full pt-14 px-2 sm:px-4">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
           Discover Your Favorite Place with Us
         </h2>

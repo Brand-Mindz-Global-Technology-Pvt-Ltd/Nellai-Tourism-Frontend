@@ -1,106 +1,142 @@
 // PopularDestinations.jsx
-import { useRef } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useVelocity,
+} from "framer-motion";
+
+function useElementWidth(ref) {
+  const [width, setWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    function updateWidth() {
+      if (ref.current) {
+        setWidth(ref.current.offsetWidth);
+      }
+    }
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [ref]);
+
+  return width;
+}
 
 export default function PopularDestinations() {
-  const stripRef = useRef(null);
+  const containerRef = useRef(null);
+  const copyRef = useRef(null);
+  const copyWidth = useElementWidth(copyRef);
+
+  // Velocity-based scroll effect
+  const { scrollY } = useScroll({ container: containerRef });
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  
+  const velocityFactor = useTransform(
+    smoothVelocity,
+    [-1000, 0, 1000],
+    [-2, 0, 2],
+    { clamp: false }
+  );
+
+  const baseX = useMotionValue(0);
+  const x = useTransform(baseX, (v) => {
+    if (copyWidth === 0) return "0px";
+    return `${v}px`;
+  });
+
+  // Update position based on scroll velocity
+  useLayoutEffect(() => {
+    const unsubscribe = velocityFactor.on("change", (latest) => {
+      const currentX = baseX.get();
+      const newX = currentX + latest * 0.5; // Adjust multiplier for sensitivity
+      baseX.set(newX);
+    });
+    return unsubscribe;
+  }, [velocityFactor, baseX]);
 
   const destinations = [
-    { number: "01", title: "Marina Bay Sands", image: "https://api.builder.io/api/v1/image/assets/TEMP/12b05cd9147ab80327e2e186144ace9a20522ba9?width=922" },
-    { number: "02", title: "Gardens by the Bay", image: "https://api.builder.io/api/v1/image/assets/TEMP/adcfa8d38f483dcd3faedc958cb6537791e1100c?width=2212" },
-    { number: "03", title: "Putrajaya", image: "https://api.builder.io/api/v1/image/assets/TEMP/2a725d05762255d9e79faf8a54137c18f60ca35c?width=1868" },
-    { number: "04", title: "Tioman Island", image: "https://api.builder.io/api/v1/image/assets/TEMP/c0dfb3172b68acf712608652b12309e79dc5e45c?width=1824" },
-    { number: "05", title: "Dubai Marina", image: "https://api.builder.io/api/v1/image/assets/TEMP/709d0efd55c9757034e8683ebc87994887052333?width=532" },
-    // ➕ two more items
-    { number: "06", title: "Kyoto, Japan", image: "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac5?q=80&w=1600&auto=format&fit=crop" },
-    { number: "07", title: "Rome, Italy", image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?q=80&w=1600&auto=format&fit=crop" }
+    { number: "01", title: "Battam Tour", image: "/images/popular-destinations/popularbg-1.jpg" },
+    { number: "02", title: "Temple Tour, India", image: "/images/popular-destinations/popularbg-2.jpg" },
+    { number: "03", title: "Bangkok, ( Pattaya)", image: "/images/popular-destinations/popularbg-3.jpg" },
+    { number: "04", title: "Bali Island, Thailand", image: "/images/popular-destinations/popularbg-4.jpg" },
+    { number: "05", title: "Marina Bay Sands", image: "https://api.builder.io/api/v1/image/assets/TEMP/12b05cd9147ab80327e2e186144ace9a20522ba9?width=922" },
+    { number: "06", title: "Gardens by the Bay", image: "https://api.builder.io/api/v1/image/assets/TEMP/adcfa8d38f483dcd3faedc958cb6537791e1100c?width=2212" },
+    { number: "07", title: "Putrajaya", image: "https://api.builder.io/api/v1/image/assets/TEMP/2a725d05762255d9e79faf8a54137c18f60ca35c?width=1868" },
   ];
 
-  const scrollByCards = (dir = 1) => {
-    const el = stripRef.current;
-    if (!el) return;
-    const card = el.querySelector(".pd-card");
-    const step = (card?.clientWidth || 320) + 20; // card width + gap
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
-
   return (
-    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-24 bg-tourism-light relative overflow-hidden">
-      {/* Background doodles */}
-      <div className="absolute top-0 left-0 w-96 h-96 opacity-10 pointer-events-none">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/30b5b380063e62b80cfd3f38a0aa025eeeb18ece?width=1020"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="absolute bottom-0 right-0 w-full h-24 opacity-10 pointer-events-none">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/47b04e25c9696b9538a6464ed140e2b4402e62cc?width=3254"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      <div className="relative z-10 max-w-[1440px] mx-auto">
-        {/* Header row (placement like screenshot) */}
+    <section className="w-full py-12 px-0 bg-tourism-light relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-12">
+        {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-8">
           <div>
-            <h2 className="text-black font-sen text-2xl md:text-3xl font-semibold uppercase mb-3">
+            <h2 className="text-black text-2xl md:text-3xl font-normal font-lemo uppercase mb-3" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
               Popular Destination
             </h2>
-            <p className="text-black/80 font-poppins text-sm md:text-base max-w-2xl">
+            <p className="text-black/80 font-normal text-base md:text-lg max-w-2xl" style={{ fontFamily: 'Jost, sans-serif' }}>
               These destinations often have well-developed tourism infrastructure, offering a range
               of accommodations, dining options, and activities that cater to various types of travelers.
             </p>
           </div>
 
-          <button
-            onClick={() => scrollByCards(1)}
-            className="mt-2 lg:mt-0 bg-tourism-primary text-white px-6 py-2.5 rounded-xl font-poppins text-sm font-semibold hover:bg-tourism-primary/90 transition-colors"
-          >
+          <button className="mt-2 lg:mt-0 bg-tourism-primary text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-tourism-primary/90 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Explore more
           </button>
         </div>
 
-        {/* Horizontal strip (exact placement + scroll) */}
-        <div className="relative">
-          {/* Edge fades (optional) */}
-          
-          <div
-            ref={stripRef}
-            className="overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory"
+        {/* Velocity-based scroll carousel */}
+        <div className="mt-10 relative overflow-hidden">
+          <div 
+            ref={containerRef}
+            className="overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory h-[520px]"
           >
-            <div className="flex items-stretch gap-5 min-w-full pr-6">
+            <motion.div 
+              className="flex items-stretch gap-6 min-w-full pr-6"
+              style={{ x }}
+            >
               {destinations.map((destination, i) => (
-                <article
+                <motion.article
                   key={destination.number + destination.title}
-                  className="
-                    pd-card snap-start shrink-0
-                    w-[260px] md:w-[300px] lg:w-[320px]
-                    h-[320px] md:h-[360px] lg:h-[400px]
-                    rounded-2xl overflow-hidden relative
-                    transition-transform duration-300 ease-out hover:scale-[1.03]
-                  "
+                  className="snap-start shrink-0 w-[280px] md:w-[320px] lg:w-[320px] h-[400px] md:h-[450px] lg:h-[520px] rounded-2xl overflow-hidden relative cursor-pointer group"
+                  ref={i === 0 ? copyRef : null}
                 >
-                  {/* Image */}
+                  {/* BG image */}
                   <div
-                    className="absolute inset-0 bg-center bg-cover"
-                    style={{ backgroundImage: `url('${destination.image}')` }}
+                    className="absolute inset-0 bg-cover transition-all duration-700 ease-in-out group-hover:scale-125 group-hover:brightness-110 group-hover:contrast-110"
+                    style={{ 
+                      backgroundImage: `url('${destination.image}')`,
+                      backgroundPosition: 
+                        i === 0 ? 'right center' :
+                        i === 1 ? 'left center' :
+                        i === 2 ? 'center center' :
+                        i === 3 ? 'left center' :
+                        'center center'
+                    }}
                   />
-                  {/* Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  {/* Bottom content (number + title) */}
-                  <div className="absolute bottom-5 left-5 right-5 text-white">
-                    <div className="text-2xl md:text-3xl font-poppins font-semibold opacity-95">
+
+                  {/* Gradient - only at bottom for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+
+                  {/* Content */}
+                  <div className="relative h-full flex flex-col justify-end items-start text-white p-6">
+                    <div className="text-3xl md:text-4xl font-semibold opacity-95 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                       {destination.number}
                     </div>
-                    <h3 className="mt-1 text-base md:text-lg font-poppins font-semibold">
+                    <h3 className="text-base md:text-xl font-semibold" style={{ fontFamily: 'Poppins, sans-serif' }}>
                       {destination.title}
                     </h3>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
