@@ -5,7 +5,7 @@ import { Eye, EyeOff, Check, X } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import CountrySelector, { Country } from "@/components/CountrySelector";
-import GoogleSignIn from "@/components/GoogleSignIn";
+import GoogleSignIn from "@/components/GoogleSignIn"; 
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -358,7 +358,21 @@ export default function SignIn() {
       <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-6 relative">
         {/* Logo in top left corner */}
         <div className="absolute top-6 left-6">
-          <h1 className="text-xl font-bold text-black">BRAND MINDZ</h1>
+          <div className="flex items-center gap-2">
+            <img
+              src="/images/logo/nellai-tours-logo.png"
+              alt="Nellai Tourism Logo"
+              className="h-8 w-auto"
+            />
+            <div>
+              <h1 className="text-sm font-medium text-[#2C2A6B] leading-tight tracking-wider font-lemo">
+                NELLAI TOURS
+              </h1>
+              <p className="text-[8px] font-normal text-black leading-tight tracking-widest font-lemo">
+                WORLD CLASS TRAVEL
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="w-full max-w-sm">
@@ -725,56 +739,20 @@ export default function SignIn() {
         </div>
       </div>
 
-      {/* Right Column - Promotional Content */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-500 to-teal-500 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
-          <div className="absolute top-32 left-32 w-24 h-24 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-20 right-20 w-40 h-40 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-40 right-40 w-16 h-16 border-2 border-white rounded-full"></div>
+      {/* Right Column - Image */}
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/signup/signuppic.jpg')"
+          }}
+        >
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
-
-        {/* Orange Glow Effect */}
-        <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-orange-400 rounded-full opacity-30 blur-xl"></div>
-
-        {/* Content Container with Proper Gap and Border Radius */}
-        <div className="relative z-10 flex items-center justify-center w-full h-full p-16">
-          <div className="bg-white/20 backdrop-blur-md rounded-3xl p-12 max-w-lg text-center relative">
-            <h3 className="text-2xl font-bold text-white mb-8 leading-relaxed">
-              Start your journey by one click, explore beautiful world!
-            </h3>
-            
-            {/* Camera Girl Image */}
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                {/* Camera Girl SVG */}
-                <svg width="140" height="140" viewBox="0 0 140 140" className="text-white">
-                  {/* Hat */}
-                  <ellipse cx="70" cy="35" rx="30" ry="10" fill="currentColor" opacity="0.8"/>
-                  {/* Face */}
-                  <circle cx="70" cy="60" r="25" fill="currentColor" opacity="0.9"/>
-                  {/* Camera */}
-                  <rect x="55" y="50" width="30" height="25" rx="4" fill="currentColor" opacity="0.7"/>
-                  <circle cx="70" cy="62" r="10" fill="currentColor" opacity="0.9"/>
-                  {/* Backpack */}
-                  <rect x="40" y="70" width="25" height="30" rx="4" fill="currentColor" opacity="0.6"/>
-                  {/* Mask */}
-                  <ellipse cx="70" cy="65" rx="15" ry="8" fill="currentColor" opacity="0.8"/>
-                  {/* Denim Shirt */}
-                  <rect x="45" y="75" width="50" height="35" rx="8" fill="currentColor" opacity="0.7"/>
-                </svg>
-              </div>
-            </div>
-
-            {/* Navigation Dots */}
-            <div className="flex justify-center space-x-3">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <div className="w-2 h-2 bg-white/50 rounded-full"></div>
-              <div className="w-2 h-2 bg-white/50 rounded-full"></div>
-            </div>
-          </div>
-        </div>
+        
+        {/* Content overlay */}
+      
       </div>
     </div>
   );
