@@ -6,23 +6,23 @@ export default function EventsSection() {
       title: "Airport In Singapore : The Jewel changi Airport ! (Indoor wall)",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/e9bad5dfd42f149747f7bb58d2cbb322037846b8?width=1984",
       author: "Jones M",
-      date: "19 jul, 2024",
+      // date: "19 jul, 2024",
       avatar: "https://api.builder.io/api/v1/image/assets/TEMP/05b9dc694bad3b02e4fdcb32d0a634865965bff9?width=80",
       size: "large"
     },
     {
       title: "Fulidhoo Island Guide: Shark & Stingray Beach In Maldives",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/9d904c6d6e0d1817b904926a1fa0be56e93f9a0c?width=1160",
-      author: "Jones M",
-      date: "19 jul, 2024",
+      author: "James L",
+      // date: "19 jul, 2024",
       avatar: "https://api.builder.io/api/v1/image/assets/TEMP/05b9dc694bad3b02e4fdcb32d0a634865965bff9?width=80",
       size: "small"
     },
     {
       title: "13 Best Traditional Shrines & Temples To Visit In Japan",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/b32c05bf724451f2ce196a8bdde2740ba08cced0?width=1060",
-      author: "Jones M",
-      date: "19 jul, 2024",
+      author: "Kiran L",
+      // date: "19 jul, 2024",
       avatar: "https://api.builder.io/api/v1/image/assets/TEMP/05b9dc694bad3b02e4fdcb32d0a634865965bff9?width=80",
       size: "small"
     }
@@ -41,21 +41,13 @@ export default function EventsSection() {
             </p>
           </div>
           
-          {/* Navigation Arrows */}
-          <div className="flex gap-2.5">
-            <button className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors">
-              <ChevronLeft className="w-3.5 h-3.5 text-gray-600" />
-            </button>
-            <button className="w-6 h-6 bg-tourism-primary rounded-full flex items-center justify-center hover:bg-tourism-primary/90 transition-colors">
-              <ChevronRight className="w-3.5 h-3.5 text-white" />
-            </button>
-          </div>
+          
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {/* Large Event Card */}
           <div className="lg:col-span-2">
-            <div className="relative h-[420px] rounded-xl overflow-hidden shadow-lg group">
+            <div className="relative h-[520px] rounded-xl overflow-hidden shadow-lg group">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                 style={{ backgroundImage: `url('${events[0].image}')` }}
@@ -68,14 +60,14 @@ export default function EventsSection() {
                 </h3>
                 
                 <div className="flex items-center gap-4">
-                  <img 
+                  {/* <img 
                     src={events[0].avatar}
                     alt={events[0].author}
                     className="w-14 h-14 rounded-full object-cover"
-                  />
+                  /> */}
                   <div>
                     <p className="font-poppins text-base font-medium">{events[0].author}</p>
-                    <p className="font-poppins text-xs opacity-90">{events[0].date}</p>
+                    {/* <p className="font-poppins text-xs opacity-90">{events[0].date}</p> */}
                   </div>
                 </div>
               </div>
@@ -85,7 +77,7 @@ export default function EventsSection() {
           {/* Small Event Cards */}
           <div className="space-y-6">
             {events.slice(1).map((event, index) => (
-              <div key={index} className="relative h-[200px] rounded-xl overflow-hidden shadow-lg group">
+              <div key={index} className="relative h-[250px] rounded-xl overflow-hidden shadow-lg group">
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                   style={{ backgroundImage: `url('${event.image}')` }}
@@ -98,14 +90,14 @@ export default function EventsSection() {
                   </h4>
                   
                   <div className="flex items-center gap-3">
-                    <img 
+                    {/* <img 
                       src={event.avatar}
                       alt={event.author}
                       className="w-10 h-10 rounded-full object-cover"
-                    />
+                    /> */}
                     <div>
                       <p className="font-poppins text-xs font-medium">{event.author}</p>
-                      <p className="font-poppins text-[10px] opacity-90">{event.date}</p>
+                      {/* <p className="font-poppins text-[10px] opacity-90">{event.date}</p> */}
                     </div>
                   </div>
                 </div>

@@ -21,7 +21,7 @@ export default function Testimonials() {
       text:
         "Booking through this site was so easy, and the entire trip exceeded our expectations! From the breathtaking views to the amazing local guides, every moment was magical. Highly recommend for anyone looking for a seamless and memorable travel experience!",
       author: "Jane Cooper",
-      location: "Japan, 2023",
+      location: "Singapore",
       avatar:
         "https://api.builder.io/api/v1/image/assets/TEMP/05b9dc694bad3b02e4fdcb32d0a634865965bff9?width=80",
     },
@@ -29,7 +29,7 @@ export default function Testimonials() {
       text:
         "This was our first time booking with this service, and it won't be the last! Every detail of our trip was perfectly organized, and we didn't have to worry about a thing. The itinerary struck a great balance between adventure and relaxation.",
       author: "David",
-      location: "China, 2023",
+      location: "Malaysia ",
       avatar:
         "https://api.builder.io/api/v1/image/assets/TEMP/05b9dc694bad3b02e4fdcb32d0a634865965bff9?width=80",
     },
@@ -37,7 +37,7 @@ export default function Testimonials() {
       text:
         "From the moment we booked, everything was smooth and hassle-free. The customer support was fantastic, and the recommendations were spot-on. We had a truly authentic experience exploring the hidden gems of our destination.",
       author: "Alex P",
-      location: "Egypt, 2022",
+      location: "Indonesia ",
       avatar:
         "https://api.builder.io/api/v1/image/assets/TEMP/05b9dc694bad3b02e4fdcb32d0a634865965bff9?width=80",
     },
@@ -76,23 +76,7 @@ export default function Testimonials() {
             </p>
           </div>
 
-          {/* Arrows (top-right like screenshot) */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => scrollByCards(-1)}
-              className="w-7 h-7 rounded-full bg-gray-300 grid place-items-center hover:bg-gray-400 transition"
-              aria-label="Previous"
-            >
-              <ChevronLeft className="w-4 h-4 text-gray-700" />
-            </button>
-            <button
-              onClick={() => scrollByCards(1)}
-              className="w-7 h-7 rounded-full bg-tourism-primary grid place-items-center hover:bg-tourism-primary/90 transition"
-              aria-label="Next"
-            >
-              <ChevronRight className="w-4 h-4 text-white" />
-            </button>
-          </div>
+          
         </div>
 
         {/* Cards row (scrollable on small screens, 3-up on large) */}
@@ -122,11 +106,11 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <img
+                  {/* <img
                     src={t.avatar}
                     alt={t.author}
                     className="w-12 h-12 rounded-full object-cover"
-                  />
+                  /> */}
                   <div>
                     <h4 className="text-black font-poppins text-base font-medium">
                       {t.author}

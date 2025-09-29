@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useVelocity,
 } from "framer-motion";
+import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 function useElementWidth(ref) {
   const [width, setWidth] = useState(0);
@@ -30,6 +31,7 @@ export default function PopularDestinations() {
   const containerRef = useRef(null);
   const copyRef = useRef(null);
   const copyWidth = useElementWidth(copyRef);
+  const { openModal } = useEnquireModal();
 
   // Velocity-based scroll effect
   const { scrollY } = useScroll({ container: containerRef });
@@ -87,7 +89,11 @@ export default function PopularDestinations() {
             </p>
           </div>
 
-          <button className="mt-2 lg:mt-0 bg-tourism-primary text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-tourism-primary/90 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <button 
+            onClick={openModal}
+            className="mt-2 lg:mt-0 bg-tourism-primary text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-tourism-primary/90 transition-colors" 
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
             Explore more
           </button>
         </div>

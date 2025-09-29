@@ -1,10 +1,11 @@
 import { MapPin, Phone, MessageCircle, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 // SVG icon components for visible social icons
 const FacebookIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
-    <circle cx="16" cy="16" r="16" fill="#" />
+  <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#1877F2" />
     <path
       d="M18.5 16H20l.5-3h-2V11.5c0-.6.2-1 1-1h1.1V8.2c-.2 0-.9-.2-1.7-.2-1.7 0-2.9 1-2.9 2.8V13H13v3h2v7h3.5v-7z"
       fill="#fff"
@@ -13,8 +14,8 @@ const FacebookIcon = () => (
 );
 
 const XIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
-    <circle cx="16" cy="16" r="16" fill="#" />
+  <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#000000" />
     <path
       d="M11.5 10.5h2.1l2.4 3.2 2.4-3.2h2.1l-3.5 4.7 3.7 4.8h-2.1l-2.6-3.5-2.6 3.5h-2.1l3.7-4.8-3.5-4.7z"
       fill="#fff"
@@ -23,22 +24,25 @@ const XIcon = () => (
 );
 
 const LinkedInIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
-    <circle cx="16" cy="16" r="16" fill="" />
-    <rect x="10" y="13" width="3" height="9" rx="1" fill="#fff" />
-    <rect x="19" y="16" width="3" height="6" rx="1" fill="#fff" />
-    <circle cx="11.5" cy="11.5" r="1.5" fill="#fff" />
-    <rect x="15" y="16" width="3" height="1.5" rx="0.75" fill="#fff" />
-    <rect x="15" y="17.5" width="3" height="4.5" rx="1" fill="#fff" />
+  <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#0077B5" />
+    <path
+      d="M8.5 12.5h3v9h-3v-9zM10 8.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z"
+      fill="#fff"
+    />
+    <path
+      d="M13.5 12.5h2.8v1.2c.4-.6 1.4-1.2 2.9-1.2 3.1 0 3.7 2 3.7 4.6v5.4h-3v-4.8c0-1.1-.2-2.2-1.6-2.2-1.6 0-1.8 1.2-1.8 2.1v4.9h-3v-9z"
+      fill="#fff"
+    />
   </svg>
 );
 
 const InstagramIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5" aria-hidden="true">
-    <circle cx="16" cy="16" r="16" fill="#" />
-    <rect x="10" y="10" width="12" height="12" rx="4" fill="#fff" />
-    <circle cx="16" cy="16" r="3" fill="#888" />
-    <circle cx="20.5" cy="11.5" r="1" fill="#888" />
+  <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#E4405F" />
+    <rect x="10" y="10" width="12" height="12" rx="3" stroke="#fff" strokeWidth="1.5" fill="none" />
+    <circle cx="16" cy="16" r="3" stroke="#fff" strokeWidth="1.5" fill="none" />
+    <circle cx="20.5" cy="11.5" r="1" fill="#fff" />
   </svg>
 );
 
@@ -66,6 +70,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { openModal } = useEnquireModal();
+  
   return (
     <footer className="w-full bg-white text-black">
       {/* === Top CTA Section === */}
@@ -87,7 +93,10 @@ export default function Footer() {
           <p className="text-white/90 text-sm md:text-base mb-6">
             Let us help you create unforgettable memories with our special tours and destinations.
           </p>
-          <button className="bg-yellow-400 text-black px-8 py-3 rounded font-semibold hover:bg-yellow-500 transition">
+          <button 
+            onClick={openModal}
+            className="bg-yellow-400 text-black px-8 py-3 rounded font-semibold hover:bg-yellow-500 transition"
+          >
             Book now
           </button>
         </div>
@@ -127,7 +136,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-400 hover:bg-tourism-primary transition-colors cursor-pointer"
+                  className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer shadow-sm"
                 >
                   {icon}
                 </a>
@@ -224,7 +233,16 @@ export default function Footer() {
           
           {/* Copyright text */}
           <div className="text-center text-sm text-gray-600">
-            Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️</span> Brand Mindz | All rights reserved
+            Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️</span>{" "}
+            <a
+              href="https://brandmindz.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-tourism-primary transition"
+            >
+              Brand Mindz
+            </a>{" "}
+            | All rights reserved
           </div>
         </div>
       </div>

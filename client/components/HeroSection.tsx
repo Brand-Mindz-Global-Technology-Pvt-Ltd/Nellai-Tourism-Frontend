@@ -2,6 +2,7 @@
 import { motion, AnimatePresence, cubicBezier, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
+import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 const images = [
   {
@@ -98,6 +99,7 @@ export default function HeroSection() {
   const [displayOrder, setDisplayOrder] = useState(
     images.map((img) => img.id).filter((id) => id !== images[0].id)
   );
+  const { openModal } = useEnquireModal();
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [showRestartEffect, setShowRestartEffect] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -171,7 +173,7 @@ export default function HeroSection() {
             exit="exit"
             className="fixed top-0 left-0 w-full z-50 py-3 px-6 md:px-10 flex justify-between items-center shadow-xl"
             style={{
-              backgroundColor: activeImage.color,
+              backgroundColor: "white",
             }}
           >
             {/* Header content is duplicated for simplicity, can be componentized */}
@@ -352,7 +354,11 @@ export default function HeroSection() {
             <p className="text-sm md:text-base max-w-2xl mb-6 leading-relaxed font-normal"  style={{ fontFamily: 'Jost, sans-serif' }}>
               {activeImage.description}
             </p>
-            <button className="bg-purple-800 hover:bg-purple-900 text-white px-6 py-2.5 text-sm font-semibold rounded-md transition-colors duration-300" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <button 
+              onClick={openModal}
+              className="bg-purple-800 hover:bg-purple-900 text-white px-6 py-2.5 text-sm font-semibold rounded-md transition-colors duration-300" 
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
               {activeImage.callToAction}
             </button>
           </motion.div>

@@ -8,6 +8,8 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 function useElementWidth(ref) {
   const [width, setWidth] = useState(0);
@@ -105,6 +107,8 @@ function VelocityCarousel({
 
 export default function TravelCategoriesMarquee() {
   const [isHovered, setIsHovered] = useState(false);
+  const carouselRef = useRef(null);
+  const { openModal } = useEnquireModal();
 
   const categories = [
     { image: "/images/section2/section2 -1.jpg", title: "TRICKEYE MUSEUM" },
@@ -117,28 +121,72 @@ export default function TravelCategoriesMarquee() {
     { image: "/images/section2/section2 -5.png", title: "NESTOPIA NESTOPIA" },
   ];
 
+  // Manual scroll functions
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      const scrollAmount = 300; // Adjust scroll distance
+      carouselRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      const scrollAmount = 300; // Adjust scroll distance
+      carouselRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="w-full py-12 px-0 ">
-      {/* Heading */}
+      {/* Heading with Navigation Controls */}
       <div className="max-w-[1440px] mx-auto px-12">
-        <h2 className="text-2xl md:text-3xl  font-normal tracking-wide font-lemo">
-          Top Attraction Tickets Await
-        </h2>
-        <p className="text-base md:text-lg text-black/80 mt-3 max-w-4xl leading-relaxed font-normal" style={{fontFamily: 'Jost, sans-serif'}}>
-          Discover the best experiences with our handpicked attraction tickets —
-          from thrilling water parks to scenic cable car rides and exciting
-          adventures for all ages
-        </p>
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-8">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-normal tracking-wide font-lemo">
+              Top Attraction Tickets Await
+            </h2>
+            <p className="text-base md:text-lg text-black/80 mt-3 max-w-4xl leading-relaxed font-normal" style={{fontFamily: 'Jost, sans-serif'}}>
+              Discover the best experiences with our handpicked attraction tickets —
+              from thrilling water parks to scenic cable car rides and exciting
+              adventures for all ages
+            </p>
+          </div>
+          
+          {/* Navigation Controls */}
+          <div className="flex gap-4 mt-2 lg:mt-0">
+            <button
+              onClick={scrollLeft}
+              className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-600" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-600" />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Velocity-based scrolling carousel */}
       <div className="mt-10 relative overflow-hidden">
-        <VelocityCarousel
-          baseVelocity={isHovered ? 0 : 20}
-          className="flex items-center gap-8 py-8"
-          parallaxClassName="relative"
-          scrollerClassName="flex items-center gap-8"
-        >
+        <div ref={carouselRef} className="overflow-x-auto hide-scrollbar">
+          <VelocityCarousel
+            baseVelocity={isHovered ? 0 : 20}
+            className="flex items-center gap-8 py-8"
+            parallaxClassName="relative"
+            scrollerClassName="flex items-center gap-8"
+          >
           {categories.map((item, i) => (
             <div
               key={i}
@@ -150,7 +198,6 @@ export default function TravelCategoriesMarquee() {
                 className="relative w-full h-[280px] md:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer group"
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0px 10px 30px rgba(0,0,0,0.2)",
                 }}
                 transition={{
                   duration: 0.3,
@@ -171,15 +218,28 @@ export default function TravelCategoriesMarquee() {
                   <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4">
                     {item.title}
                   </h3>
-                  <button className="bg-yellow-600 text-white px-6 md:px-7 lg:px-8 py-2.5 text-xs md:text-sm font-bold uppercase tracking-wide rounded hover:opacity-90 transition-opacity">
+                  <button 
+                    onClick={openModal}
+                    className="bg-yellow-600 text-white px-6 md:px-7 lg:px-8 py-2.5 text-xs md:text-sm font-bold uppercase tracking-wide rounded hover:opacity-90 transition-opacity"
+                  >
                     Book Now
                   </button>
                 </div>
               </motion.article>
             </div>
           ))}
-        </VelocityCarousel>
+          </VelocityCarousel>
+        </div>
       </div>
+
+      {/* Hide scrollbar styles */}
+      <style>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none; /* IE/Edge */
+          scrollbar-width: none;    /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; } /* Chrome/Safari/Opera */
+      `}</style>
     </section>
   );
 }

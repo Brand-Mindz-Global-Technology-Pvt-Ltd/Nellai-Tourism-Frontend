@@ -4,9 +4,11 @@
 // Added curved edge to the rectangle container
 
 import { useRef } from "react";
+import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 export default function DailyDeals() {
   const scrollerRef = useRef(null);
+  const { openModal } = useEnquireModal();
 
   const deals = [
     {
@@ -21,15 +23,15 @@ export default function DailyDeals() {
       desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
     },
     {
-      city: "Malaysia",
+      city: "Malaysia WEEKED",
       region: "Asia",
       days: 5,
       people: "25K People Going",
       rating: 4.7,
-      price: 430,
+      price: 160,
       oldPrice: 530,
       image: "/images/daily-deals/section7 -2.jpg",
-      desc: "Et labore harum non nobis ipsum quam molestiae mollitia et corporis praesentium a laudantium internos.",
+      desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
     },
     {
       city: "Singapore",
@@ -37,10 +39,10 @@ export default function DailyDeals() {
       days: 6,
       people: "26K People Going",
       rating: 4.9,
-      price: 820,
-      oldPrice: 950,
+      price: 99,
+      oldPrice: 280,
       image: "/images/daily-deals/section7 -3.jpg",
-      desc: "Destinations with great infrastructure, dining options, and city experiences tailored to suit every type of traveler.",
+      desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
     },
     
   ];
@@ -71,7 +73,7 @@ export default function DailyDeals() {
           </div>
 
           <button
-            onClick={() => scrollByCards(1)}
+            onClick={openModal}
             className="h-10 px-6 rounded-xl bg-tourism-primary text-white text-sm font-poppins font-semibold hover:bg-tourism-primary/90 transition-colors"
           >
             Explore more
@@ -107,7 +109,7 @@ export default function DailyDeals() {
                   {/* Content - Bottom */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     {/* Badges - Top Left of Content Area */}
-                    <div className="flex items-center gap-3 mb-4 text-white text-xs font-poppins">
+                    {/* <div className="flex items-center gap-3 mb-4 text-white text-xs font-poppins">
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
                         <CalendarIcon className="w-4 h-4" />
                         {d.days} Days
@@ -116,7 +118,7 @@ export default function DailyDeals() {
                         <UsersIcon className="w-4 h-4" />
                         {d.people}
                       </span>
-                    </div>
+                    </div> */}
 
                     {/* Title and Rating */}
                     <div className="flex items-center justify-between mb-2">
@@ -131,10 +133,10 @@ export default function DailyDeals() {
                     {/* Price and Location */}
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-baseline gap-3">
-                        <div className="text-3xl font-poppins font-bold tracking-tight text-yellow-400">
+                        <div className="text-3xl font-poppins font-medium tracking-tight text-yellow-400">
                           $ {d.price}
                         </div>
-                        <div className="text-base font-poppins line-through opacity-80">
+                        <div className="text-base font-poppins font-medium line-through opacity-80">
                           $ {d.oldPrice}
                         </div>
                       </div>

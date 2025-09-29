@@ -1,4 +1,7 @@
+import { useEnquireModal } from "../contexts/EnquireModalContext";
+
 export default function  LocalHappenings() {
+  const { openModal } = useEnquireModal();
   const happenings = [
     {
       title: "Taxi",
@@ -29,58 +32,67 @@ export default function  LocalHappenings() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-          {/* Left Column - First item (Large) */}
-          <div className="relative h-[480px] group cursor-pointer">
+        <div className="flex flex-col lg:flex-row gap-0">
+          {/* Left Column - First item (Large) - 40% width */}
+          <div className="relative h-[600px] lg:h-[700px] group cursor-pointer lg:w-[40%]">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
               style={{ backgroundImage: `url('${happenings[0].image}')` }}
             />
             <div className="absolute inset-0 bg-black/40" />
             
-            <div className="absolute bottom-8 left-8 text-white">
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-center">
               <h3 className="text-2xl font-poppins font-semibold mb-3">
                 {happenings[0].title}
               </h3>
-              <button className={`${happenings[0].buttonColor} text-white px-8 py-2.5 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+              <button 
+                onClick={openModal}
+                className={`${happenings[0].buttonColor} text-white px-8 py-2.5 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}
+              >
                 Book now
               </button>
             </div>
           </div>
 
-          {/* Right Column - Two stacked items */}
-          <div className="flex flex-col">
+          {/* Right Column - Two stacked items - 60% width */}
+          <div className="flex flex-col lg:w-[60%]">
             {/* Second item */}
-            <div className="relative h-[240px] group cursor-pointer">
+            <div className="relative h-[300px] lg:h-[350px] group cursor-pointer">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url('${happenings[1].image}')` }}
               />
               <div className="absolute inset-0 bg-black/40" />
               
-              <div className="absolute bottom-6 left-6 text-white">
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center">
                 <h3 className="text-xl font-poppins font-semibold mb-2">
                   {happenings[1].title}
                 </h3>
-                <button className={`${happenings[1].buttonColor} text-white px-7 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button 
+                  onClick={openModal}
+                  className={`${happenings[1].buttonColor} text-white px-7 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}
+                >
                   Book now
                 </button>
               </div>
             </div>
 
             {/* Third item */}
-            <div className="relative h-[240px] group cursor-pointer">
+            <div className="relative h-[300px] lg:h-[350px] group cursor-pointer">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url('${happenings[2].image}')` }}
               />
               <div className="absolute inset-0 bg-black/40" />
               
-              <div className="absolute bottom-6 left-6 text-white">
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center">
                 <h3 className="text-xl font-poppins font-semibold mb-2">
                   {happenings[2].title}
                 </h3>
-                <button className={`${happenings[2].buttonColor} text-white px-7 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}>
+                <button 
+                  onClick={openModal}
+                  className={`${happenings[2].buttonColor} text-white px-7 py-2 font-poppins text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity`}
+                >
                   Book now
                 </button>
               </div>
