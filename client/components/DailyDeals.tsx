@@ -56,16 +56,16 @@ export default function DailyDeals() {
   };
 
   return (
-    <section className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-20">
+    <section className="w-full py-8 sm:py-12 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20">
       {/* Added curved edge to the main rectangle container */}
-      <div className="max-w-[1440px] mx-auto px-6 rounded-3xl bg-white shadow-none">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 rounded-2xl sm:rounded-3xl bg-white shadow-none">
         {/* Header */}
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h2 className="text-black  text-2xl md:text-3xl font-normal uppercase mb-3 font-lemo">
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-6">
+          <div className="w-full sm:w-auto">
+            <h2 className="text-black text-xl sm:text-2xl md:text-3xl font-normal uppercase mb-2 sm:mb-3 font-lemo">
               DAILY DEALS
             </h2>
-            <p className="text-black/80 font-normal text-base md:text-lg max-w-3xl leading-relaxed" style={{ fontFamily: 'Jost, sans-serif' }}>
+            <p className="text-black/80 font-normal text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed" style={{ fontFamily: 'Jost, sans-serif' }}>
               These destinations often have well-developed tourism infrastructure, offering a
               range of accommodations, dining options, and activities that cater to various types
               of travelers.
@@ -74,27 +74,25 @@ export default function DailyDeals() {
 
           <button
             onClick={openModal}
-            className="h-10 px-6 rounded-xl bg-tourism-primary text-white text-sm font-poppins font-semibold hover:bg-tourism-primary/90 transition-colors"
+            className="w-full sm:w-auto h-10 px-4 sm:px-6 rounded-xl bg-tourism-primary text-white text-xs sm:text-sm font-poppins font-semibold hover:bg-tourism-primary/90 transition-colors"
           >
             Explore more
           </button>
         </div>
 
         {/* Carousel */}
-        <div className="relative mt-6">
-          {/* Optional edge fades (adjust 'from-white' if page bg differs) */}
-
+        <div className="relative mt-4 sm:mt-6">
           {/* Strip */}
           <div
             ref={scrollerRef}
             className="relative overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar"
           >
-            <div className="flex items-stretch gap-6 min-w-full pr-6">
+            <div className="flex items-stretch gap-4 sm:gap-6 min-w-full pr-4 sm:pr-6">
               {deals.map((d, i) => (
                 <article
                   key={`${d.city}-${i}`}
                   // Added curved edge to each card
-                  className="deal-card snap-start shrink-0 w-[340px] md:w-[420px] h-[480px] rounded-2xl overflow-hidden relative"
+                  className="deal-card snap-start shrink-0 w-[280px] sm:w-[340px] md:w-[420px] h-[400px] sm:h-[480px] rounded-xl sm:rounded-2xl overflow-hidden relative"
                 >
                   {/* Image */}
                   <img
@@ -107,47 +105,35 @@ export default function DailyDeals() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
                   {/* Content - Bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    {/* Badges - Top Left of Content Area */}
-                    {/* <div className="flex items-center gap-3 mb-4 text-white text-xs font-poppins">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
-                        <CalendarIcon className="w-4 h-4" />
-                        {d.days} Days
-                      </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full">
-                        <UsersIcon className="w-4 h-4" />
-                        {d.people}
-                      </span>
-                    </div> */}
-
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
                     {/* Title and Rating */}
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-2xl font-poppins font-semibold capitalize">{d.city}</h3>
+                      <h3 className="text-lg sm:text-2xl font-poppins font-semibold capitalize leading-tight">{d.city}</h3>
                       <div className="flex items-center gap-1 text-yellow-400">
                         {Array.from({ length: 5 }).map((_, idx) => (
-                          <Star key={idx} filled={idx < Math.round(d.rating)} className="w-4 h-4" />
+                          <Star key={idx} filled={idx < Math.round(d.rating)} className="w-3 h-3 sm:w-4 sm:h-4" />
                         ))}
                       </div>
                     </div>
 
                     {/* Price and Location */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-baseline gap-3">
-                        <div className="text-3xl font-poppins font-medium tracking-tight text-yellow-400">
+                    <div className="flex items-center justify-between mb-2 sm:mb-3">
+                      <div className="flex items-baseline gap-2 sm:gap-3">
+                        <div className="text-2xl sm:text-3xl font-poppins font-medium tracking-tight text-yellow-400">
                           $ {d.price}
                         </div>
-                        <div className="text-base font-poppins font-medium line-through opacity-80">
+                        <div className="text-sm sm:text-base font-poppins font-medium line-through opacity-80">
                           $ {d.oldPrice}
                         </div>
                       </div>
                       <div className="flex items-center gap-1 text-xs opacity-90 font-poppins">
-                        <GlobeIcon className="w-4 h-4" />
-                        <span>{d.region}</span>
+                        <GlobeIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span className="hidden sm:inline">{d.region}</span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-white/90 leading-relaxed font-poppins mb-4">
+                    <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-poppins mb-3 sm:mb-4 line-clamp-3">
                       {d.desc}
                     </p>
 
@@ -155,7 +141,7 @@ export default function DailyDeals() {
                     <div className="flex justify-end">
                       <button 
                         onClick={openModal}
-                        className="px-6 py-2.5 rounded-lg bg-blue-800 text-white text-sm font-poppins font-semibold hover:bg-blue-900 transition-colors"
+                        className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg bg-blue-800 text-white text-xs sm:text-sm font-poppins font-semibold hover:bg-blue-900 transition-colors"
                       >
                         Book Now
                       </button>

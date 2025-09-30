@@ -75,15 +75,15 @@ export default function PopularDestinations() {
   ];
 
   return (
-    <section className="w-full py-12 px-0 bg-tourism-light relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-12">
+    <section className="w-full py-8 sm:py-12 px-4 sm:px-6 md:px-8 lg:px-12 bg-tourism-light relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-4 mb-8">
-          <div>
-            <h2 className="text-black text-2xl md:text-3xl font-normal font-lemo uppercase mb-3" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div className="w-full lg:w-auto">
+            <h2 className="text-black text-xl sm:text-2xl md:text-3xl font-normal font-lemo uppercase mb-2 sm:mb-3" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
               Popular Destination
             </h2>
-            <p className="text-black/80 font-normal text-base md:text-lg max-w-2xl" style={{ fontFamily: 'Jost, sans-serif' }}>
+            <p className="text-black/80 font-normal text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed" style={{ fontFamily: 'Jost, sans-serif' }}>
               These destinations often have well-developed tourism infrastructure, offering a range
               of accommodations, dining options, and activities that cater to various types of travelers.
             </p>
@@ -91,7 +91,7 @@ export default function PopularDestinations() {
 
           <button 
             onClick={openModal}
-            className="mt-2 lg:mt-0 bg-tourism-primary text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-tourism-primary/90 transition-colors" 
+            className="w-full sm:w-auto mt-2 lg:mt-0 bg-tourism-primary text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold hover:bg-tourism-primary/90 transition-colors" 
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Explore more
@@ -99,19 +99,19 @@ export default function PopularDestinations() {
         </div>
 
         {/* Velocity-based scroll carousel */}
-        <div className="mt-10 relative overflow-hidden">
+        <div className="mt-6 sm:mt-10 relative overflow-hidden">
           <div 
             ref={containerRef}
-            className="overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory h-[520px]"
+            className="overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory h-[300px] sm:h-[400px] md:h-[450px] lg:h-[520px]"
           >
             <motion.div 
-              className="flex items-stretch gap-6 min-w-full pr-6"
+              className="flex items-stretch gap-4 sm:gap-6 min-w-full pr-4 sm:pr-6"
               style={{ x }}
             >
               {destinations.map((destination, i) => (
                 <motion.article
                   key={destination.number + destination.title}
-                  className="snap-start shrink-0 w-[280px] md:w-[320px] lg:w-[320px] h-[400px] md:h-[450px] lg:h-[520px] rounded-2xl overflow-hidden relative cursor-pointer group"
+                  className="snap-start shrink-0 w-[240px] sm:w-[280px] md:w-[320px] lg:w-[320px] h-[300px] sm:h-[400px] md:h-[450px] lg:h-[520px] rounded-xl sm:rounded-2xl overflow-hidden relative cursor-pointer group"
                   ref={i === 0 ? copyRef : null}
                 >
                   {/* BG image */}
@@ -132,11 +132,11 @@ export default function PopularDestinations() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
 
                   {/* Content */}
-                  <div className="relative h-full flex flex-col justify-end items-start text-white p-6">
-                    <div className="text-3xl md:text-4xl font-semibold opacity-95 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <div className="relative h-full flex flex-col justify-end items-start text-white p-4 sm:p-6">
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-semibold opacity-95 mb-1 sm:mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
                       {destination.number}
                     </div>
-                    <h3 className="text-base md:text-xl font-semibold" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    <h3 className="text-sm sm:text-base md:text-xl font-semibold leading-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
                       {destination.title}
                     </h3>
                   </div>
