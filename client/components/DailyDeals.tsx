@@ -20,7 +20,7 @@ export default function DailyDeals() {
       price: 260,
       oldPrice: 480,
       image: "/images/daily-deals/section7 -1.jpg",
-      desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
+      desc: "Set sail on a magical Singapore cruise for just S$260, enjoying stunning skyline views and a serene onboard experience. Perfect for couples, families, or solo travelers—book now for an unforgettable evening!",
     },
     {
       city: "Malaysia WEEKED",
@@ -31,7 +31,7 @@ export default function DailyDeals() {
       price: 160,
       oldPrice: 530,
       image: "/images/daily-deals/section7 -2.jpg",
-      desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
+      desc: "Grab our exclusive daily deal and enjoy a seamless, fun-filled Malaysian escape. Perfect for friends, families, or solo travelers—book today!",
     },
     {
       city: "Singapore",
@@ -42,7 +42,7 @@ export default function DailyDeals() {
       price: 99,
       oldPrice: 280,
       image: "/images/daily-deals/section7 -3.jpg",
-      desc: "Nam exercitationem commodi et ducimus quia in dolore animi sit mollitia amet id quod eligendi. Et labore harum non nobis ipsum eum molestias mollitia et corporis praesentium a laudantium internos.",
+      desc: "Savor a sumptuous buffet while cruising Singapore’s sparkling waters. Perfect for a romantic evening or a relaxing night out—book your unforgettable yacht experience today!",
     },
     
   ];
@@ -153,7 +153,10 @@ export default function DailyDeals() {
 
                     {/* Book Now Button */}
                     <div className="flex justify-end">
-                      <button className="px-6 py-2.5 rounded-lg bg-blue-800 text-white text-sm font-poppins font-semibold hover:bg-blue-900 transition-colors">
+                      <button 
+                        onClick={openModal}
+                        className="px-6 py-2.5 rounded-lg bg-blue-800 text-white text-sm font-poppins font-semibold hover:bg-blue-900 transition-colors"
+                      >
                         Book Now
                       </button>
                     </div>

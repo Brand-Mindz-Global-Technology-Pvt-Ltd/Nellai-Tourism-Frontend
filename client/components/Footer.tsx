@@ -13,25 +13,11 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const XIcon = () => (
+const WhatsAppIcon = () => (
   <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-    <circle cx="16" cy="16" r="16" fill="#000000" />
+    <circle cx="16" cy="16" r="16" fill="#25D366" />
     <path
-      d="M11.5 10.5h2.1l2.4 3.2 2.4-3.2h2.1l-3.5 4.7 3.7 4.8h-2.1l-2.6-3.5-2.6 3.5h-2.1l3.7-4.8-3.5-4.7z"
-      fill="#fff"
-    />
-  </svg>
-);
-
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-    <circle cx="16" cy="16" r="16" fill="#0077B5" />
-    <path
-      d="M8.5 12.5h3v9h-3v-9zM10 8.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z"
-      fill="#fff"
-    />
-    <path
-      d="M13.5 12.5h2.8v1.2c.4-.6 1.4-1.2 2.9-1.2 3.1 0 3.7 2 3.7 4.6v5.4h-3v-4.8c0-1.1-.2-2.2-1.6-2.2-1.6 0-1.8 1.2-1.8 2.1v4.9h-3v-9z"
+      d="M8.5 16c0-4.1 3.4-7.5 7.5-7.5s7.5 3.4 7.5 7.5c0 1.6-.5 3.1-1.4 4.3l.8 2.9-3-.8c-1.1.6-2.3.9-3.6.9-4.1 0-7.5-3.4-7.5-7.5zm4.2-2.1c-.2 0-.4.1-.5.3-.1.2 0 .4.1.6.2.3.4.6.6.8.1.1.1.2.1.3 0 .2-.1.4-.3.5-.1.1-.2.1-.3.1-.2 0-.4-.1-.5-.3-.2-.3-.4-.6-.6-.9-.1-.2-.2-.4-.1-.6.1-.2.3-.3.5-.3.2 0 .4.1.5.3.1.1.1.2.1.3 0 .1 0 .2-.1.3-.1.1-.2.1-.3.1zm3.6 0c-.2 0-.4.1-.5.3-.1.2 0 .4.1.6.2.3.4.6.6.8.1.1.1.2.1.3 0 .2-.1.4-.3.5-.1.1-.2.1-.3.1-.2 0-.4-.1-.5-.3-.2-.3-.4-.6-.6-.9-.1-.2-.2-.4-.1-.6.1-.2.3-.3.5-.3.2 0 .4.1.5.3.1.1.1.2.1.3 0 .1 0 .2-.1.3-.1.1-.2.1-.3.1z"
       fill="#fff"
     />
   </svg>
@@ -48,24 +34,19 @@ const InstagramIcon = () => (
 
 const socialLinks = [
   {
-    href: "https://facebook.com/",
+    href: "https://www.facebook.com/nellaitours",
     label: "Facebook",
     icon: <FacebookIcon />,
   },
   {
-    href: "https://x.com/",
-    label: "X (Twitter)",
-    icon: <XIcon />,
-  },
-  {
-    href: "https://linkedin.com/",
-    label: "LinkedIn",
-    icon: <LinkedInIcon />,
-  },
-  {
-    href: "https://instagram.com/",
+    href: "https://www.instagram.com/nellai_tours_pte_ltd/",
     label: "Instagram",
     icon: <InstagramIcon />,
+  },
+  {
+    href: "https://wa.me/6585022187",
+    label: "WhatsApp",
+    icon: <WhatsAppIcon />,
   },
 ];
 
@@ -233,7 +214,7 @@ export default function Footer() {
           
           {/* Copyright text */}
           <div className="text-center text-sm text-gray-600">
-            Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️</span>{" "}
+            Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️ </span>{" "} by {" "}
             <a
               href="https://brandmindz.com/"
               target="_blank"

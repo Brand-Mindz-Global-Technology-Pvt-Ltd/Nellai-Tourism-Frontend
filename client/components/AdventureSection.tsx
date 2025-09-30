@@ -40,24 +40,7 @@ export default function AdventureSection() {
       icon: GraduationCap,
       bgColor: "bg-rose-700"
     },
-    {
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/66c18779ccac0813fb0f27ec336fdd03d32e7912?width=1528",
-      title: "Food Travel",
-      icon: Utensils,
-      bgColor: "bg-green-600"
-    },
-    {
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/4fa98871237a98152cdd2600e60382dc5a0ee988?width=1272",
-      title: "Heritage Travel",
-      icon: Building,
-      bgColor: "bg-gray-700"
-    },
-    {
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/13d1840767418e6095373b48874bbffd2ef31b43?width=1350",
-      title: "Luxury Travel",
-      icon: Crown,
-      bgColor: "bg-amber-600"
-    },
+    
     {
       image: "/images/adventures/family-travel.jpg",
       title: "Family Travel",

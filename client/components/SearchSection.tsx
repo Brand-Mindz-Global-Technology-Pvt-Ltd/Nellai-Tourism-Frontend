@@ -1,6 +1,9 @@
 import { MapPin, Calendar, Users } from "lucide-react";
+import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 export default function SearchSection() {
+  const { openModal } = useEnquireModal();
+
   return (
     <section className="relative w-full min-h-[350px] md:h-[450px] flex justify-center">
       {/* Background Image */}
@@ -80,11 +83,15 @@ export default function SearchSection() {
 
           {/* Search Button */}
           <div className="px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center">
-            <button className="
-              bg-tourism-primary hover:bg-tourism-primary/90 text-white font-semibold
-              px-6 sm:px-8 py-2.5 sm:py-3 rounded-full shadow-md transition w-full sm:w-auto
-              text-sm sm:text-base
-            ">
+            <button 
+              type="button"
+              onClick={openModal}
+              className="
+                bg-tourism-primary hover:bg-tourism-primary/90 text-white font-semibold
+                px-6 sm:px-8 py-2.5 sm:py-3 rounded-full shadow-md transition w-full sm:w-auto
+                text-sm sm:text-base
+              "
+            >
               Search
             </button>
           </div>
