@@ -47,26 +47,26 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
     >
       <div className="bg-white rounded-lg w-full max-w-4xl max-h-[95vh] overflow-y-auto shadow-2xl">
         {/* Header */}
-        <div className="bg-[#2C2A6B] text-white px-6 py-4 rounded-t-lg">
+        <div className="bg-[#2C2A6B] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-t-lg">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold uppercase">ENQUIRE NOW</h2>
+            <h2 className="text-lg sm:text-xl font-semibold uppercase">ENQUIRE NOW</h2>
             <button
               onClick={onClose}
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-gray-300 transition-colors p-1"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-4 sm:p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+        <form onSubmit={handleSubmit} className="p-3 sm:p-4 md:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             {/* Left Column */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* First Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   First Name :
                 </label>
                 <div className="relative">
@@ -75,7 +75,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="text"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange('firstName', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Enter your first name"
                     required
                   />
@@ -84,7 +84,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Email :
                 </label>
                 <div className="relative">
@@ -93,7 +93,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Enter your email address"
                     required
                   />
@@ -102,7 +102,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* City of Residence */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   City of Residence :
                 </label>
                 <div className="relative">
@@ -111,7 +111,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="text"
                     value={formData.cityOfResidence}
                     onChange={(e) => handleInputChange('cityOfResidence', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Enter your city"
                     required
                   />
@@ -120,7 +120,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* Travel Destination */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Travel Destination :
                 </label>
                 <div className="relative">
@@ -128,7 +128,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                   <select
                     value={formData.travelDestination}
                     onChange={(e) => handleInputChange('travelDestination', e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent appearance-none bg-white transition-all duration-200"
+                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent appearance-none bg-white transition-all duration-200 text-sm sm:text-base"
                     required
                   >
                     <option value="New York">New York</option>
@@ -150,7 +150,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* No. of People */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   No. of people :
                 </label>
                 <div className="relative">
@@ -158,7 +158,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                   <select
                     value={formData.numberOfPeople}
                     onChange={(e) => handleInputChange('numberOfPeople', e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent appearance-none bg-white transition-all duration-200"
+                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent appearance-none bg-white transition-all duration-200 text-sm sm:text-base"
                     required
                   >
                     <option value="1">1</option>
@@ -182,10 +182,10 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
             </div>
 
             {/* Right Column */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* Last Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Last Name :
                 </label>
                 <div className="relative">
@@ -194,7 +194,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="text"
                     value={formData.lastName}
                     onChange={(e) => handleInputChange('lastName', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Enter your last name"
                     required
                   />
@@ -203,7 +203,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* Phone Number */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Phone Number :
                 </label>
                 <div className="relative">
@@ -212,7 +212,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="tel"
                     value={formData.phoneNumber}
                     onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Enter your phone number"
                     required
                   />
@@ -221,7 +221,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* WhatsApp Number */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Whatsapp Number :
                 </label>
                 <div className="relative">
@@ -230,7 +230,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="tel"
                     value={formData.whatsappNumber}
                     onChange={(e) => handleInputChange('whatsappNumber', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Enter your WhatsApp number"
                     required
                   />
@@ -239,7 +239,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* Date of Travel */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Date of Travel :
                 </label>
                 <div className="relative">
@@ -248,7 +248,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                     type="date"
                     value={formData.dateOfTravel}
                     onChange={(e) => handleInputChange('dateOfTravel', e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     required
                   />
                 </div>
@@ -256,7 +256,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
 
               {/* Vacation Type */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Vaccation Type :
                 </label>
                 <div className="relative">
@@ -264,7 +264,7 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                   <select
                     value={formData.vacationType}
                     onChange={(e) => handleInputChange('vacationType', e.target.value)}
-                    className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent appearance-none bg-white transition-all duration-200"
+                    className="w-full pl-10 pr-10 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2C2A6B] focus:border-transparent appearance-none bg-white transition-all duration-200 text-sm sm:text-base"
                     required
                   >
                     <option value="Family Trip">Family Trip</option>
@@ -287,10 +287,10 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-center mt-6 sm:mt-8">
+          <div className="flex justify-center mt-4 sm:mt-6 md:mt-8">
             <button
               type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded-lg transition-all duration-200 uppercase text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2.5 sm:py-3 md:py-4 px-6 sm:px-8 md:px-12 rounded-lg transition-all duration-200 uppercase text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto"
             >
               SUBMIT
             </button>

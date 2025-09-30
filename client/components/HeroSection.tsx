@@ -234,17 +234,17 @@ export default function HeroSection() {
                   Contact us
                 </Link>
             </nav>
-            <div className="flex items-center gap-3">
-              <Search className="w-5 h-5 text-gray-700 cursor-pointer hover:text-purple-700 transition-colors" />
-              <Link to="/signin" className="bg-tourism-primary text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-tourism-primary/90 transition-colors">Sign in / Sign up</Link>
-            </div>
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-purple-700 transition-colors"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 cursor-pointer hover:text-purple-700 transition-colors" />
+                      <Link to="/signin" className="bg-tourism-primary text-white px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-tourism-primary/90 transition-colors whitespace-nowrap">Sign in / Sign up</Link>
+                    </div>
+                    {/* Mobile Menu Button */}
+                    <button
+                      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                      className="md:hidden p-1 sm:p-2 text-gray-700 hover:text-purple-700 transition-colors ml-2"
+                    >
+                      {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+                    </button>
           </motion.header>
         ) : (
           <header
@@ -302,7 +302,7 @@ export default function HeroSection() {
             </nav>
             <div className="flex items-center gap-2 sm:gap-3">
               <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 cursor-pointer hover:text-purple-700 transition-colors" />
-              <Link to="/signin" className="bg-tourism-primary text-white px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-tourism-primary/90 transition-colors">Sign in / Sign up</Link>
+              <Link to="/signin" className="bg-tourism-primary text-white px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-tourism-primary/90 transition-colors whitespace-nowrap">Sign in / Sign up</Link>
             </div>
             {/* Mobile Menu Button */}
             <button
