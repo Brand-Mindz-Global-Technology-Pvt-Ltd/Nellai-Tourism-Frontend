@@ -96,7 +96,7 @@ export default function Footer() {
               />
               <div>
                 <h1 className="text-base font-medium text-[#2C2A6B] leading-tight tracking-wider font-lemo">
-                  NELLAI TOURS
+                  NELLAI TOURS  
                 </h1>
                 <p className="text-[10px] font-normal text-black leading-tight tracking-widest font-lemo">
                   WORLD CLASS TRAVEL
@@ -104,8 +104,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-6 font-poppins">
-              Nellai Tours is an online travel agency operated by a well-established & 
-              reputed Travel Management Company Nellai Tours & Tours
+              Nellai Tours PTE LTD is an online travel agency operated by a well-established & 
+              reputed Travel Management Company Nellai Tours PTE LTD
             </p>
 
             {/* Social Icons */}
@@ -134,14 +134,15 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link to="/packages" className="hover:text-tourism-primary">
-                  Packages
-                </Link>
-              </li>
+              
               <li>
                 <Link to="/about" className="hover:text-tourism-primary">
                   About us
+                </Link>
+              </li>
+              <li>
+                <Link to="/packages" className="hover:text-tourism-primary">
+                  Packages
                 </Link>
               </li>
               <li>
@@ -154,7 +155,7 @@ export default function Footer() {
 
           {/* Office Locations */}
           <div>
-            <h4 className="text-black font-semibold mb-4">Corporate Office</h4>
+            {/* <h4 className="text-black font-semibold mb-4">Corporate Office</h4>
             <div className="flex items-start gap-3 mb-6 text-sm text-gray-600">
               <MapPin className="w-4 h-4 text-tourism-primary mt-1" />
               <p>
@@ -162,14 +163,14 @@ export default function Footer() {
                 Kodambakkam, Chennai<br />
                 Tamilnadu, India - 600024
               </p>
-            </div>
+            </div> */}
 
             <h4 className="text-black font-semibold mb-4">Head Office</h4>
             <div className="flex items-start gap-3 text-sm text-gray-600">
               <MapPin className="w-4 h-4 text-tourism-primary mt-1" />
               <p>
-                No:1 Paya Lebar Link,<br />
-                #04-01 Paya Lebar Quarter<br />
+                No:7 #12-7 Suntec Tower One,<br />
+              
                 Singapore - 408533
               </p>
             </div>
@@ -181,11 +182,11 @@ export default function Footer() {
             <div className="space-y-4 text-sm text-gray-600">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-tourism-primary" />
-                <span>+65 85022187</span>
+                <span>+65 9812 1384</span>
               </div>
               <div className="flex items-center gap-3">
                 <MessageCircle className="w-4 h-4 text-tourism-primary" />
-                <span>+65 85022187</span>
+                <span>+65 8502 2187</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-tourism-primary" />

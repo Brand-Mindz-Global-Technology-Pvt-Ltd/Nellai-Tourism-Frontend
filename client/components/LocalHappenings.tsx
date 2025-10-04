@@ -9,13 +9,13 @@ export default function  LocalHappenings() {
       buttonColor: "bg-tourism-secondary"
     },
     {
-      title: "Private Party",
-      image: "/images/local-happenings/section5 -2.jpg",
+      title: "Mice",
+      image: "/images/local-happenings/Mice.jpg",
       buttonColor: "bg-tourism-secondary"
     },
     {
       title: "Restaurant",
-      image: "/images/local-happenings/section5 -3.jpg",
+      image: "/images/local-happenings/restaurant.jpg",
       buttonColor: "bg-tourism-secondary"
     }
   ];

@@ -8,9 +8,9 @@ export default function SearchSection() {
     <section className="relative w-full min-h-[280px] sm:min-h-[350px] md:h-[450px] flex justify-center">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center sm:bg-top"
+   className="absolute inset-0 bg-cover bg-fixed bg-[center_10%]" 
         style={{
-          backgroundImage: "url('/images/hero/search-background.jpg')"
+          backgroundImage: "url('/images/hero/Singapore - Marina Bay Sands..jpg')"
         }}
       >
         <div className="absolute inset-0 bg-black/30 sm:bg-black/20 md:bg-black/10" />
@@ -21,11 +21,8 @@ export default function SearchSection() {
         <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 leading-tight">
           Discover Your Favorite Place with Us
         </h2>
-        <p className="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 md:mb-6 lg:mb-10 leading-relaxed max-w-2xl mx-auto">
-          This was our first time booking with this service, and it won't be the
-          last! <br className="hidden sm:block" />
-          Every detail of our trip was perfectly organized, and we didn't have
-          to worry about a thing.
+        <p className="text-xs sm:text-sm md:text-base mb-3 sm:mb-4 md:mb-6 lg:mb-10 leading-relaxed max-w-2xl mx-auto line-clamp-2">
+          This was our first time booking with this service, and it won't be the last! Every detail of our trip was perfectly organized, and we didn't have to worry about a thing.
         </p>
 
         {/* Search Container */}

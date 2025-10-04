@@ -23,7 +23,7 @@ export default function DailyDeals() {
       desc: "Set sail on a magical Singapore cruise for just S$260, enjoying stunning skyline views and a serene onboard experience. Perfect for couples, families, or solo travelers—book now for an unforgettable evening!",
     },
     {
-      city: "Malaysia WEEKED",
+      city: "Malaysia Weekend ",
       region: "Asia",
       days: 5,
       people: "25K People Going",

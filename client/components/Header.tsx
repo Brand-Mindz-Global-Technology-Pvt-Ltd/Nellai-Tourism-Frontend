@@ -13,11 +13,11 @@ export default function Header() {
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 text-xs font-poppins">
             <div className="flex items-center gap-2 pr-5 border-r border-gray-300">
               <Phone className="w-4 h-4 text-tourism-primary" />
-              <span>+91 81484 32978</span>
+              <span>+65 9812 1384</span>
             </div>
             <div className="flex items-center gap-2 pr-5 border-r border-gray-300">
               <MessageCircle className="w-4 h-4 text-tourism-primary" />
-              <span>+91 81484 32978</span>
+              <span>+65 85022187</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-tourism-primary" />

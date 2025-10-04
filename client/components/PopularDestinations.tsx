@@ -68,7 +68,7 @@ export default function PopularDestinations() {
     { number: "01", title: "Battam Tour", image: "/images/popular-destinations/popularbg-1.jpg" },
     { number: "02", title: "Temple Tour, India", image: "/images/popular-destinations/popularbg-2.jpg" },
     { number: "03", title: "Bangkok, ( Pattaya)", image: "/images/popular-destinations/popularbg-3.jpg" },
-    { number: "04", title: "Bali Island, Thailand", image: "/images/popular-destinations/popularbg-4.jpg" },
+    { number: "04", title: "Bali Island", image: "/images/popular-destinations/popularbg-4.jpg" },
     // { number: "05", title: "Marina Bay Sands", image: "https://api.builder.io/api/v1/image/assets/TEMP/12b05cd9147ab80327e2e186144ace9a20522ba9?width=922" },
     // { number: "06", title: "Gardens by the Bay", image: "https://api.builder.io/api/v1/image/assets/TEMP/adcfa8d38f483dcd3faedc958cb6537791e1100c?width=2212" },
     // { number: "07", title: "Putrajaya", image: "https://api.builder.io/api/v1/image/assets/TEMP/2a725d05762255d9e79faf8a54137c18f60ca35c?width=1868" },

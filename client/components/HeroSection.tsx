@@ -17,7 +17,7 @@ const images = [
   },
   {
     id: 2,
-    src: "/images/hero/herosection-2.jpg",
+    src: "/images/hero/singapore-city.webp",
     title: "Singapore",
     subtitle: "Discover Dynamic Singapore",
     description:"Skylines, culture, and iconic attractions in one trip.",
@@ -26,7 +26,7 @@ const images = [
   },
   {
     id: 3,
-    src: "/images/hero/herosection-3.jpg",
+    src: "/images/hero/malaysia-.webp",
     title: "Malaysia",
     subtitle: " Journey Through Malaysia",
     description:"Islands, heritage, and flavors for every traveler’s delight.",
@@ -35,7 +35,7 @@ const images = [
   },
   {
     id: 4,
-    src: "/images/hero/herosection-4.jpg",
+    src: "/images/hero/indonesia.jpg",
     title: " Indonesia",
     subtitle: "Uncover Indonesia’s Wonders",
     description:
@@ -43,9 +43,9 @@ const images = [
     callToAction: "Explore More",
     color: "#eef2f3",
   },
-  {
+   {
     id: 5,
-    src: "/images/hero/search-background.jpg",
+    src: "/images/hero/thailand.jpg",
     title: "Thailand",
     subtitle: "Experience Enchanting Thailand",
     description:"Golden temples, lively markets, and serene beach escapes.",
@@ -215,17 +215,18 @@ export default function HeroSection() {
                 >
                   Home
                 </Link>
-                <Link
-                  to="/packages"
-                  className="text-gray-600 hover:text-[#2C2A6B] transition-colors"
-                >
-                  Packages
-                </Link>
+               
                 <Link
                   to="/about"
                   className="text-gray-600 hover:text-[#2C2A6B] transition-colors"
                 >
                   About us
+                </Link>
+                <Link
+                  to="/packages"
+                  className="text-gray-600 hover:text-[#2C2A6B] transition-colors"
+                >
+                  Packages
                 </Link>
                 <Link
                   to="/contact"
@@ -281,17 +282,18 @@ export default function HeroSection() {
                 >
                   Home
                 </Link>
-                <Link
-                  to="/packages"
-                  className="text-gray-600 hover:text-[#2C2A6B] transition-colors"
-                >
-                  Packages
-                </Link>
+                
                 <Link
                   to="/about"
                   className="text-gray-600 hover:text-[#2C2A6B] transition-colors"
                 >
                   About us
+                </Link>
+                <Link
+                  to="/packages"
+                  className="text-gray-600 hover:text-[#2C2A6B] transition-colors"
+                >
+                  Packages
                 </Link>
                 <Link
                   to="/contact"
@@ -490,15 +492,23 @@ export default function HeroSection() {
             className="absolute inset-0 z-10"
             transition={SEAMLESS_TRANSITION}
           >
-            <img
-              src={activeImage.src}
-              alt={activeImage.title}
-              className="w-full h-full object-cover"
-              style={{
-                objectPosition: 'center center',
-                objectFit: 'cover'
-              }}
-            />
+           <img
+  src={activeImage.src}
+  alt={activeImage.title}
+  className="w-full h-full object-cover"
+  style={{
+    // Use a ternary operator to set the object position
+    objectPosition: activeImage.id === 3 
+      // IF the active image ID is 3, use this custom position.
+      // You can customize these values.
+      ? 'center 7%' 
+      
+      // ELSE (for all other images), use the default centered position.
+      : 'center center',
+      
+    objectFit: 'cover'
+  }}
+/>
           </motion.div>
         </AnimatePresence>
 
@@ -574,20 +584,32 @@ export default function HeroSection() {
                       transition: { duration: 0.2 },
                     }}
                   >
-                    <img
-                      src={image.src}
-                      alt={image.title}
-                      className="w-full h-full object-cover"
-                      style={{
-                        objectPosition: 
-                          image.id === 1 ? 'right center' :
-                          image.id === 2 ? 'center center' :
-                          image.id === 3 ? 'left center' :
-                          image.id === 5 ? 'center center' :
-                          image.id === 6 ? 'right center' :
-                          'center center'
-                      }}
-                    />
+                   <img
+    src={image.src}
+    alt={image.title}
+    className="w-full h-full object-cover"
+    style={{
+        // We now use a condition to apply different transforms.
+        transform: image.id === 3
+            // IF the image ID is 3, apply scale AND translate.
+            // Customize the translate values below to move the image.
+            // First value is X (left/right), second is Y (up/down).
+            ? 'scale(1.3) translate(0%, 11%)' 
+            
+            // ELSE (for all other images), just apply the standard scale.
+            : 'scale(1.0)',
+
+        // This part remains the same. It gives a good base position
+        // before the 'translate' fine-tunes it.
+        objectPosition: 
+            image.id === 1 ? 'right center' :
+            image.id === 2 ? 'center center' :
+            image.id === 3 ? 'center center' :
+            image.id === 5 ? 'center center' :
+            image.id === 6 ? 'right center' :
+            'center center'
+    }}
+/>
                     <div className="absolute inset-0 bg-black/40" />
                     <motion.div
                       className="absolute bottom-4 left-4 text-white"

@@ -116,7 +116,7 @@ export default function TravelCategoriesMarquee() {
     { image: "/images/section2/section2 -3.png", title: "SEA AQUARIUM" },
     {
       image: "/images/section2/section2 -4.jpg",
-      title: "SCIENCE CENTER + KIDS STOP",
+      title: "SCIENCE CENTER + KIDS STOP", 
     },
     { image: "/images/section2/section2 -5.png", title: "NESTOPIA NESTOPIA" },
   ];
@@ -211,11 +211,11 @@ export default function TravelCategoriesMarquee() {
                 />
 
                 {/* Gradient - only at bottom for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-end items-center text-white text-center p-3 sm:p-4 md:p-6 lg:p-8">
-                  <h3 className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 leading-tight">
+                  <h3 className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 leading-tight whitespace-nowrap">
                     {item.title}
                   </h3>
                   <button 

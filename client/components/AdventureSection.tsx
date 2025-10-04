@@ -29,20 +29,20 @@ export default function AdventureSection() {
       bgColor: "bg-pink-600"
     },
     {
-      image: "/images/adventures/industrial IV.jpg",
+      image: "/images/adventures/industrial IV.webp",
       title: "Industrial Visit",
       icon: MapPin,
       bgColor: "bg-blue-400"
     },
     {
-      image: "/images/adventures/adventureimage-3.jpg",
+      image: "/images/adventures/adventureimage-3.webp",
       title: "Education",
       icon: GraduationCap,
       bgColor: "bg-rose-700"
     },
     
     {
-      image: "/images/adventures/family-travel.jpg",
+      image: "/images/adventures/family-travel.webp",
       title: "Family Travel",
       icon: Users,
       bgColor: "bg-teal-600"

@@ -11,7 +11,7 @@ export default function EventsSection() {
       size: "large"
     },
     {
-      title: "Fulidhoo Island Guide: Shark & Stingray Beach In Maldives",
+      title: "A Divine Experience at the Malaysia Murugan Temple",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/9d904c6d6e0d1817b904926a1fa0be56e93f9a0c?width=1160",
       author: "James L",
       // date: "19 jul, 2024",
