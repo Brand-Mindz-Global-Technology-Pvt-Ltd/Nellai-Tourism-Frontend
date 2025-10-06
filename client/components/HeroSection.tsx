@@ -152,6 +152,27 @@ export default function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when scrolling
+  useEffect(() => {
+    if (isScrolled) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [isScrolled]);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.mobile-menu-container')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isMobileMenuOpen]);
+
   const activeImage = images[activeIdx];
   const handleCardClick = (id) => {
     const newIndex = images.findIndex((img) => img.id === id);
@@ -242,7 +263,7 @@ export default function HeroSection() {
                     {/* Mobile Menu Button */}
                     <button
                       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                      className="md:hidden p-1 sm:p-2 text-gray-700 hover:text-purple-700 transition-colors ml-2"
+                      className="md:hidden p-1 sm:p-2 text-gray-700 hover:text-purple-700 transition-colors ml-2 mobile-menu-container"
                     >
                       {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
                     </button>
@@ -309,7 +330,7 @@ export default function HeroSection() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-1 sm:p-2 text-gray-700 hover:text-purple-700 transition-colors ml-2"
+              className="md:hidden p-1 sm:p-2 text-gray-700 hover:text-purple-700 transition-colors ml-2 mobile-menu-container"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
@@ -325,7 +346,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-16 sm:top-20 left-1/2 transform -translate-x-1/2 w-[95%] z-40 bg-white rounded-2xl shadow-xl py-4"
+            className={`${isScrolled ? 'fixed' : 'absolute'} top-16 sm:top-20 left-1/2 transform -translate-x-1/2 w-[95%] z-50 bg-white rounded-2xl shadow-xl py-4 mobile-menu-container`}
           >
             <nav className="flex flex-col space-y-4 px-6">
               <Link
@@ -499,10 +520,11 @@ export default function HeroSection() {
   style={{
     // Use a ternary operator to set the object position
     objectPosition: activeImage.id === 3 
-      // IF the active image ID is 3, use this custom position.
-      // You can customize these values.
+      // IF the active image ID is 3 (Malaysia), use this custom position.
       ? 'center 7%' 
-      
+      : activeImage.id === 4
+      // IF the active image ID is 4 (Indonesia), use this custom position.
+      ? 'center 20%'
       // ELSE (for all other images), use the default centered position.
       : 'center center',
       
@@ -591,11 +613,11 @@ export default function HeroSection() {
     style={{
         // We now use a condition to apply different transforms.
         transform: image.id === 3 
-            // IF the image ID is 3, apply scale AND translate.
-            // Customize the translate values below to move the image.
-            // First value is X (left/right), second is Y (up/down).
+            // IF the image ID is 3 (Malaysia), apply scale AND translate.
             ? 'scale(1.3) translate(0%, 11%)' 
-            
+            : image.id === 4
+            // IF the image ID is 4 (Indonesia), apply scale AND translate.
+            ? 'scale(1.2) translate(0%, 15%)'
             // ELSE (for all other images), just apply the standard scale.
             : 'scale(1.0)',
 
@@ -605,6 +627,7 @@ export default function HeroSection() {
             image.id === 1 ? 'right center' :
             image.id === 2 ? 'center center' :
             image.id === 3 ? 'center center' :
+            image.id === 4 ? 'center 0%' :
             image.id === 5 ? 'center center' :
             image.id === 6 ? 'right center' :
             'center center'

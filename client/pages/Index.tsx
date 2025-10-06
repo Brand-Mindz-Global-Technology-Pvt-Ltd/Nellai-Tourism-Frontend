@@ -11,6 +11,7 @@ import SocialMediaSection from "../components/SocialMediaSection";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 import DailyDeals from "@/components/DailyDeals";
+import FixedSocialSidebar from "../components/FixedSocialSidebar";
 
 export default function Index() {
   return (
@@ -27,6 +28,7 @@ export default function Index() {
       <SocialMediaSection />
       <Testimonials />
       <Footer />
+      <FixedSocialSidebar />
     </div>
   );
 }

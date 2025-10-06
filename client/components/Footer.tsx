@@ -32,6 +32,20 @@ const InstagramIcon = () => (
   </svg>
 );
 
+const YouTubeIcon = () => (
+  <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
+    <circle cx="16" cy="16" r="16" fill="#FF0000" />
+    <path
+      d="M22.5 12.5c0-1.1-.9-2-2-2H11.5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h9c1.1 0 2-.9 2-2v-7z"
+      fill="#fff"
+    />
+    <path
+      d="M15.5 14.5l3.5 2-3.5 2v-4z"
+      fill="#FF0000"
+    />
+  </svg>
+);
+
 const socialLinks = [
   {
     href: "https://www.facebook.com/nellaitours",
@@ -47,6 +61,11 @@ const socialLinks = [
     href: "https://wa.me/6585022187",
     label: "WhatsApp",
     icon: <WhatsAppIcon />,
+  },
+  {
+    href: "https://www.youtube.com/@nellaitours",
+    label: "YouTube",
+    icon: <YouTubeIcon />,
   },
 ];
 
