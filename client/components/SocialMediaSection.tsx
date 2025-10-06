@@ -19,7 +19,7 @@ function formatTime(sec: number) {
 }
 
 export default function SocialMediaSection() {
-  const [activeIndex, setActiveIndex] = useState(1); // center active by default
+  const [activeIndex, setActiveIndex] = useState(1);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [videoMeta, setVideoMeta] = useState<{ type: string; width: number; height: number }>({
     type: "unknown",
@@ -32,20 +32,19 @@ export default function SocialMediaSection() {
   const items = [
     {
       type: "image",
-      src: "/images/social-media/social-instagram-post.jpg", // left img
+      src: "/images/social-media/social-instagram-post.jpg",
     },
     {
       type: "video",
-      src: "/images/social-media/nellai-tours.mp4", // center video
-      thumbnail: "/images/social-media/social-video-thumbnail.jpg", // thumbnail
+      src: "/images/social-media/nellai-tours.mp4",
+      thumbnail: "/images/social-media/social-video-thumbnail.jpg",
     },
     {
       type: "image",
-      src: "/images/social-media/social-video-thumbnail.jpg", // right img
+      src: "/images/social-media/social-video-thumbnail.jpg",
     },
   ];
 
-  // When the video loads metadata, update its type (reels/landscape/square)
   const handleVideoLoadedMetadata = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     const video = e.currentTarget;
     const width = video.videoWidth;
@@ -61,7 +60,6 @@ export default function SocialMediaSection() {
     });
   };
 
-  // Pause video if not active
   useEffect(() => {
     if (activeIndex !== 1 && videoRef.current) {
       videoRef.current.pause();
@@ -69,7 +67,6 @@ export default function SocialMediaSection() {
     }
   }, [activeIndex]);
 
-  // Update current time
   const handleTimeUpdate = () => {
     if (videoRef.current) {
       setVideoTime({
@@ -79,7 +76,6 @@ export default function SocialMediaSection() {
     }
   };
 
-  // Seek video
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (videoRef.current) {
       videoRef.current.currentTime = Number(e.target.value);
@@ -99,10 +95,9 @@ export default function SocialMediaSection() {
     }
   };
 
-  // Dynamic tile size classes for video tile
   function getVideoTileClasses(isActive: boolean) {
-    // Default fallback
-    let w = "w-[500px]", h = "h-[450px]";
+    let w = "w-[500px]",
+      h = "h-[450px]";
     if (videoMeta.type === "reels") {
       w = isActive ? "w-[340px]" : "w-[160px]";
       h = isActive ? "h-[600px]" : "h-[420px]";
@@ -113,39 +108,30 @@ export default function SocialMediaSection() {
       w = isActive ? "w-[450px]" : "w-[220px]";
       h = isActive ? "h-[450px]" : "h-[220px]";
     }
-    // If unknown, fallback to default
     return `${w} ${h}`;
   }
 
-  // Animate the active tile to come front (z-50, scale, shadow, etc)
   function getTileAnimationClasses(isActive: boolean) {
     return isActive
       ? "z-50 scale-105 shadow-2xl"
       : "z-10 scale-95 opacity-80 hover:scale-100 hover:opacity-100";
   }
 
-  // --- FIX: Overlay issue ---
-  // The section must NOT overlay the top bar or hide behind it.
-  // We'll add a top margin to push it below the header, and ensure z-index is not set to overlay the header.
-  // We'll also ensure the parent containers do not use absolute/fixed/negative z-index.
-  // We'll use relative positioning and a safe stacking context.
-
   return (
     <section
       className="w-full py-12 px-4 md:px-8 lg:px-16 xl:px-28 relative"
       style={{
-        marginTop: "80px", // Push below header (adjust as needed for your header height)
-        zIndex: 1, // Ensure it's below any fixed header
+        marginTop: "80px",
+        zIndex: 1,
       }}
     >
       <div className="max-w-[1440px] mx-auto">
-        {/* Heading aligned properly */}
-        <h2 className="text-black font-lemo text-2xl md:text-3xl font-normal uppercase mb-10">
+        <h2 className="text-black font-lemo text-xl md:text-3xl font-normal uppercase mb-8 md:mb-10 text-center md:text-left">
           Social media pages
         </h2>
 
-        {/* Flex row with smooth size transitions */}
-        <div className="flex justify-center items-center gap-6">
+        {/* Mobile: horizontal scroll | Desktop: centered flex row */}
+        <div className="flex justify-center items-center gap-6 overflow-x-auto md:overflow-visible pb-4 snap-x snap-mandatory scrollbar-hide md:flex-nowrap">
           {items.map((item, i) => {
             const isActive = activeIndex === i;
             let tileClass =
@@ -161,7 +147,7 @@ export default function SocialMediaSection() {
               <div
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={tileClass}
+                className={`${tileClass} flex-shrink-0 snap-center md:snap-none`}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -169,13 +155,11 @@ export default function SocialMediaSection() {
                   transition: "all 0.5s cubic-bezier(.4,2,.3,1)",
                   cursor: "pointer",
                   position: "relative",
-                  zIndex: isActive ? 2 : 1, // Ensure active tile is above others, but not above header
+                  zIndex: isActive ? 2 : 1,
                 }}
               >
-                {/* Image / Video Content */}
                 {item.type === "video" ? (
                   <div className="relative w-full h-full flex items-center justify-center">
-                    {/* Video Element */}
                     <video
                       ref={videoRef}
                       className="w-full h-full object-cover"
@@ -197,13 +181,11 @@ export default function SocialMediaSection() {
                       Your browser does not support the video tag.
                     </video>
 
-                    {/* Media Player Controls */}
                     {isActive && (
                       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] flex flex-col items-center z-20">
-                        {/* Progress Bar */}
                         <div className="flex items-center w-full gap-2">
                           <button
-                            onClick={e => {
+                            onClick={(e) => {
                               e.stopPropagation();
                               handleVideoPlay();
                             }}
@@ -215,7 +197,9 @@ export default function SocialMediaSection() {
                               <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
                             )}
                           </button>
-                          <span className="text-xs text-white font-mono min-w-[40px]">{formatTime(videoTime.current)}</span>
+                          <span className="text-xs text-white font-mono min-w-[40px]">
+                            {formatTime(videoTime.current)}
+                          </span>
                           <input
                             type="range"
                             min={0}
@@ -225,18 +209,19 @@ export default function SocialMediaSection() {
                             onChange={handleSeek}
                             className="flex-1 accent-tourism-primary h-1"
                             style={{ background: "rgba(255,255,255,0.5)" }}
-                            onClick={e => e.stopPropagation()}
+                            onClick={(e) => e.stopPropagation()}
                           />
-                          <span className="text-xs text-white font-mono min-w-[40px]">{formatTime(videoTime.duration)}</span>
+                          <span className="text-xs text-white font-mono min-w-[40px]">
+                            {formatTime(videoTime.duration)}
+                          </span>
                         </div>
                       </div>
                     )}
 
-                    {/* Play/Pause Button Overlay (centered, only if not playing) */}
                     {isActive && !isVideoPlaying && (
                       <div
                         className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
-                        onClick={e => {
+                        onClick={(e) => {
                           e.stopPropagation();
                           handleVideoPlay();
                         }}
@@ -258,6 +243,25 @@ export default function SocialMediaSection() {
           })}
         </div>
       </div>
+
+      {/* Tailwind utility to hide scrollbar */}
+      <style>
+        {`
+          .scrollbar-hide::-webkit-scrollbar { display: none; }
+          .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+          @media (max-width: 768px) {
+            section {
+              margin-top: 60px !important;
+            }
+            h2 {
+              font-size: 1.25rem !important;
+            }
+            video, .bg-cover {
+              border-radius: 0.5rem;
+            }
+          }
+        `}
+      </style>
     </section>
   );
 }

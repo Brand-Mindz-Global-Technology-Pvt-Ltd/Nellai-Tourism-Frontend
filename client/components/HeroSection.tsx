@@ -590,7 +590,7 @@ export default function HeroSection() {
     className="w-full h-full object-cover"
     style={{
         // We now use a condition to apply different transforms.
-        transform: image.id === 3
+        transform: image.id === 3 
             // IF the image ID is 3, apply scale AND translate.
             // Customize the translate values below to move the image.
             // First value is X (left/right), second is Y (up/down).

@@ -1,13 +1,14 @@
-// DailyDeals.jsx
+// DailyDeals.tsx
 // Rectangular cards, NO shadow. Horizontal scroll with 6 cards.
 // Scrollbar completely hidden (Chrome/Safari/Opera/Edge/Firefox/IE).
 // Added curved edge to the rectangle container
 
 import { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEnquireModal } from "../contexts/EnquireModalContext";
 
 export default function DailyDeals() {
-  const scrollerRef = useRef(null);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
   const { openModal } = useEnquireModal();
 
   const deals = [
@@ -44,13 +45,12 @@ export default function DailyDeals() {
       image: "/images/daily-deals/section7 -3.jpg",
       desc: "Savor a sumptuous buffet while cruising Singapore’s sparkling waters. Perfect for a romantic evening or a relaxing night out—book your unforgettable yacht experience today!",
     },
-    
   ];
 
   const scrollByCards = (dir = 1) => {
     const el = scrollerRef.current;
     if (!el) return;
-    const card = el.querySelector(".deal-card");
+    const card = el.querySelector(".deal-card") as HTMLElement | null;
     const step = (card?.clientWidth || 360) + 24; // width + gap
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
@@ -60,9 +60,9 @@ export default function DailyDeals() {
       {/* Added curved edge to the main rectangle container */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 rounded-2xl sm:rounded-3xl bg-white shadow-none">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-6">
-          <div className="w-full sm:w-auto">
-            <h2 className="text-black text-xl sm:text-2xl md:text-3xl font-normal uppercase mb-2 sm:mb-3 font-lemo">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div className="w-full lg:w-auto">
+            <h2 className="text-black text-xl sm:text-2xl md:text-3xl font-normal font-lemo uppercase mb-2 sm:mb-3" style={{ fontFamily: 'Lemon Milk, sans-serif' }}>
               DAILY DEALS
             </h2>
             <p className="text-black/80 font-normal text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed" style={{ fontFamily: 'Jost, sans-serif' }}>
@@ -72,16 +72,35 @@ export default function DailyDeals() {
             </p>
           </div>
 
-          <button
-            onClick={openModal}
-            className="w-full sm:w-auto h-10 px-4 sm:px-6 rounded-xl bg-tourism-primary text-white text-xs sm:text-sm font-poppins font-semibold hover:bg-tourism-primary/90 transition-colors"
-          >
-            Explore more
-          </button>
+          <div className="flex flex-col items-end w-full sm:w-auto gap-2 lg:items-start">
+            <button
+              onClick={openModal}
+              className="w-full sm:w-auto mt-2 lg:mt-0 bg-tourism-primary text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold hover:bg-tourism-primary/90 transition-colors"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
+              Explore more
+            </button>
+            <div className="flex gap-4 mt-2">
+              <button
+                onClick={() => scrollByCards(-1)}
+                className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
+              </button>
+              <button
+                onClick={() => scrollByCards(1)}
+                className="w-10 h-10 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Carousel */}
-        <div className="relative mt-4 sm:mt-6">
+        <div className="relative">
           {/* Strip */}
           <div
             ref={scrollerRef}
@@ -139,7 +158,7 @@ export default function DailyDeals() {
 
                     {/* Book Now Button */}
                     <div className="flex justify-end">
-                      <button 
+                      <button
                         onClick={openModal}
                         className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg bg-blue-800 text-white text-xs sm:text-sm font-poppins font-semibold hover:bg-blue-900 transition-colors"
                       >
@@ -169,19 +188,6 @@ export default function DailyDeals() {
         .hide-scrollbar::-webkit-scrollbar-track { background: transparent; }
       `}</style>
     </section>
-  );
-}
-
-/* --- Small UI helpers --- */
-function IconBtn({ children, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      className="size-9 rounded-full bg-white ring-1 ring-black/5 grid place-items-center hover:bg-gray-50 transition"
-      aria-label="scroll"
-    >
-      {children}
-    </button>
   );
 }
 
