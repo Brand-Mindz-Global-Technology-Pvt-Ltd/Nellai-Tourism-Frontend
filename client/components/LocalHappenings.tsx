@@ -9,7 +9,7 @@ export default function  LocalHappenings() {
       buttonColor: "bg-tourism-secondary"
     },
     {
-      title: "Mice",
+      title: "MICE",
       image: "/images/local-happenings/Mice.jpg",
       buttonColor: "bg-tourism-secondary"
     },

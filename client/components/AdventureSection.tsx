@@ -36,7 +36,7 @@ export default function AdventureSection() {
     },
     {
       image: "/images/adventures/adventureimage-3.webp",
-      title: "Education",
+      title: "Education Tour",
       icon: GraduationCap,
       bgColor: "bg-rose-700"
     },
