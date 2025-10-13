@@ -174,25 +174,25 @@ export default function Footer() {
 
           {/* Office Locations */}
           <div>
-            {/* <h4 className="text-black font-semibold mb-4">Corporate Office</h4>
-            <div className="flex items-start gap-3 mb-6 text-sm text-gray-600">
-              <MapPin className="w-4 h-4 text-tourism-primary mt-1" />
-              <p>
-                No: 138 Arcot Road,<br />
-                Kodambakkam, Chennai<br />
-                Tamilnadu, India - 600024
-              </p>
-            </div> */}
-
             <h4 className="text-black font-semibold mb-4">Head Office</h4>
-            <div className="flex items-start gap-3 text-sm text-gray-600">
+            <div className="flex items-start gap-3 text-sm text-gray-600 mb-4">
               <MapPin className="w-4 h-4 text-tourism-primary mt-1" />
               <p>
                 No:7 #12-7 Suntec Tower One,<br />
-              
                 Singapore - 408533
               </p>
             </div>
+            <h4 className="text-black font-semibold mb-2">Branches</h4>
+            <div className="flex items-start gap-3 text-sm text-gray-600">
+              <span className="pt-1 text-tourism-primary">
+                {/* Use an appropriate icon different from MapPin for branches; e.g., Globe */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" strokeWidth="2"/><path strokeWidth="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20" /></svg>
+              </span>
+              <p>
+                Singapore | India
+              </p>
+            </div>
+          
           </div>
 
           {/* Contact Info */}
@@ -217,14 +217,14 @@ export default function Footer() {
       </div>
 
       {/* === Branches Section === */}
-      <div className="bg-tourism-primary py-4 px-4">
+      {/* <div className="bg-tourism-primary py-4 px-4">
         <div className="max-w-[1440px] mx-auto text-center">
           <h3 className="text-white font-medium text-sm mb-2">Our Branches</h3>
           <p className="text-white text-xs leading-relaxed">
              Singapore | India 
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* === Bottom Bar === */}
       <div className="py-6">
