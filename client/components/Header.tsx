@@ -6,7 +6,7 @@ export default function Header() {
   const { user, logout } = useAuth();
 
   return (
-    <header className="w-full" style={{ height: "37px" }}>
+    <header className="w-full" style={{ height: location.pathname === "/" ? "35px" : undefined }}>
       {/* Top Contact Bar */}
       <div className="bg-white py-2 px-4 md:px-8 lg:px-16 xl:px-24">
         <div className="flex flex-col lg:flex-row justify-between items-center max-w-[1440px] mx-auto">

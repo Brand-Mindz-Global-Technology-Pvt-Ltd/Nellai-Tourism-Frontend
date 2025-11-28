@@ -744,7 +744,7 @@ export default function SignIn() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/signup/signuppic.jpg')"
+            backgroundImage: "url('/images/signup/signuppic.webp')"
           }}
         >
           {/* Overlay for better text readability */}

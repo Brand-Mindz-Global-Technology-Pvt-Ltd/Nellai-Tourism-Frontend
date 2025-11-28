@@ -111,7 +111,7 @@ export default function TravelCategoriesMarquee() {
   const { openModal } = useEnquireModal();
 
   const categories = [
-    { image: "/images/section2/section2 -1.jpg", title: "TRICKEYE MUSEUM" },
+    { image: "/images/section2/section2 -1.webp", title: "TRICKEYE MUSEUM" },
     { image: "/images/section2/section2 -2.jpg", title: "SKYHELIX SENTOSA" },
     { image: "/images/section2/section2 -3.png", title: "SEA AQUARIUM" },
     {

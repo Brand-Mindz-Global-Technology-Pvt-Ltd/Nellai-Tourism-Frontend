@@ -31,7 +31,7 @@ export default function DailyDeals() {
       rating: 4.7,
       price: 160,
       oldPrice: 530,
-      image: "/images/daily-deals/section7 -2.jpg",
+      image: "/images/daily-deals/section7 -2.webp",
       desc: "Grab our exclusive daily deal and enjoy a seamless, fun-filled Malaysian escape. Perfect for friends, families, or solo travelers—book today!",
     },
     {

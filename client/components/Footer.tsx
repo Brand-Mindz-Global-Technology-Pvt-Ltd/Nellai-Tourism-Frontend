@@ -232,18 +232,33 @@ export default function Footer() {
           {/* Top separator line */}
           <div className="w-full h-px bg-gray-300 mb-4"></div>
           
-          {/* Copyright text */}
-          <div className="text-center text-sm text-gray-600">
-            Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️ </span>{" "} by {" "}
-            <a
-              href="https://brandmindz.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-tourism-primary transition"
-            >
-              Brand Mindz
-            </a>{" "}
-            | All rights reserved
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:px-6 lg:px-9">
+            {/* Copyright text */}
+            <div className="text-center md:text-left text-sm text-gray-600">
+              Copyright © 2025 Nellai Tours Made with <span className="text-red-500">❤️ </span>{" "} by {" "}
+              <a
+                href="https://brandmindz.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-tourism-primary transition"
+              >
+                Brand Mindz
+              </a>{" "}
+              | All rights reserved
+            </div>
+
+            {/* Policy Links */}
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <Link to="/privacy-policy" className="hover:text-tourism-primary transition">
+                Privacy Policy |
+              </Link>
+              <Link to="/cookie-policy" className="hover:text-tourism-primary transition">
+                Cookie Policy |
+              </Link>
+              <Link to="/cancellation-refund" className="hover:text-tourism-primary transition">
+                Cancellation & Refund Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>

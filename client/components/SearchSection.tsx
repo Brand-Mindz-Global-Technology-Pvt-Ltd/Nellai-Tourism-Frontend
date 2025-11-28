@@ -10,7 +10,7 @@ export default function SearchSection() {
       <div
    className="absolute inset-0 bg-cover bg-fixed bg-[center_10%]" 
         style={{
-          backgroundImage: "url('/images/hero/Singapore - Marina Bay Sands..jpg')"
+          backgroundImage: "url('/images/hero/Singapore - Marina Bay Sands..webp')"
         }}
       >
         <div className="absolute inset-0 bg-black/30 sm:bg-black/20 md:bg-black/10" />
