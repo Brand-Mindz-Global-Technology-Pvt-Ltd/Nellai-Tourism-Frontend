@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Header from "../../components/header/Header";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 export default function PrivacyPolicy() {
   return (
@@ -9,8 +9,16 @@ export default function PrivacyPolicy() {
       <div className="relative">
         <Navbar />
         {/* Banner Section */}
-        <div className="bg-tourism-primary/10 py-40 px-4 md:px-8 lg:px-16 xl:px-24 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-tourism-primary uppercase tracking-wide">
+        <div
+          className="relative py-44 px-4 md:px-8 lg:px-16 xl:px-24 text-center overflow-hidden"
+          style={{
+            backgroundImage: "url('/images/policies/policy.jpg')", // Replace with your actual image path
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <h1 className="relative z-10 text-3xl md:text-4xl font-bold text-white uppercase tracking-wide">
             Privacy Policy
           </h1>
         </div>

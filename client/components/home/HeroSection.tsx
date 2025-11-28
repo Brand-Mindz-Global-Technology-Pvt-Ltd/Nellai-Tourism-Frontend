@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
-import { useEnquireModal } from "../contexts/EnquireModalContext";
-import Navbar from "./Navbar";
+import { useEnquireModal } from "../../contexts/EnquireModalContext";
+import Navbar from "../../components/navbar/Navbar";
 
 const images = [
   {

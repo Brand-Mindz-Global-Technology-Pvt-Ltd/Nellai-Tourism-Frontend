@@ -1,6 +1,6 @@
 import { MapPin, Phone, MessageCircle, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEnquireModal } from "../contexts/EnquireModalContext";
+import { useEnquireModal } from "../../contexts/EnquireModalContext";
 
 // SVG icon components for visible social icons
 const FacebookIcon = () => (
